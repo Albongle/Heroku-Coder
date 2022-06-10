@@ -1,0 +1,59 @@
+<div class="saludo">
+  <h1>Bienvenido: {{usuario}}</h1>
+  <form action="/logout" method="post" >
+    <input type="submit"  value="Logout">
+   </form>
+</div>
+<section class="section-form">
+  <form id="formulario" action="/api/productos-test" , method="post">
+    <fieldset>
+      <legend>Ingrese Producto</legend>
+      <div class="controles">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="text" name="marca" placeholder="Marca" required />
+        <label for="gama">Gama</label>
+        <select name="gama" id="gama">
+          <option value="Alta" selected>Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+        <label for="tipo">Tipo</label>
+        <select name="tipo" id="tipo">
+          <option value="Telefono" selected>Telefono</option>
+          <option value="Tablet">Tablet</option>
+          <option value="Auricular">Auricular</option>
+          <option value="SmartWatch">SmartWatch</option>
+        </select>
+        <input type="number" name="stock" placeholder="Stock"  min="0" required />
+        <input type="number" name="precio" placeholder="Precio" min="1000" required />
+        <input type="number" name="cuotas" placeholder="Cuotas" required />
+        <label for="url">URL</label>
+        <input type="url" name="urlImg" id="url" placeholder="https://via.placeholder.com/150" value="https://via.placeholder.com/150" required />
+        <input id="cargar" type="button" value="Cargar" />
+      </div>
+    </fieldset>
+  </form>
+</section>
+
+<section class="whatsapp animate__animated animate__backInDown">
+    <img id="btn-open-chat" src="./assets/images/chat.png" alt="chat" />
+</section>
+
+<dialog id="dialogo-chat" class="dialogo dialogo-chat">
+  <button class="dialogo__btn-cierra" id="btn-cierra-dialogo-chat">X</button>
+  <div class="container">
+    <div class="chat-websocket">
+      <h1>Bienvenido</h1>
+      <div class="websocket-compresion"  id="websocket-compresion"></div>
+      <div class="websocket-actions" id="websocket-actions"></div>
+      <div class="websocket-controls" id="websocket-controls">
+        <input id="user" type="email" placeholder="Usuario" required/>
+        <textarea name="message" id="message"cols="30" rows="10" placeholder="Mensaje" disabled></textarea>
+        <input id="sendMessage" type="button" value="Enviar" disabled />
+      </div>
+      <div class="websocket-messages" id="websocket-messages"></div>
+    </div>
+  </div>
+</dialog>
+
+<section class="section-productos" id="section-productos"></section>

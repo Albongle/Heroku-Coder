@@ -1,0 +1,397 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Nunito', sans-serif;
+}
+
+.section-form {
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.section-form form {
+  width: 60rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.section-form form fieldset {
+  width: 80%;
+  -webkit-box-shadow: 0.5rem 0.5rem 2rem rgba(78, 53, 53, 0.5);
+          box-shadow: 0.5rem 0.5rem 2rem rgba(78, 53, 53, 0.5);
+  border-radius: .5rem;
+}
+
+.section-form form fieldset legend {
+  color: black;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.section-form form fieldset .controles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem;
+}
+
+.section-form form fieldset .controles input, .section-form form fieldset .controles select {
+  margin: .5rem;
+  padding: .5rem 0;
+  border-radius: .5rem;
+  border: solid 0.1rem rgba(59, 54, 54, 0.5);
+}
+
+.section-form form fieldset .controles input:hover, .section-form form fieldset .controles select:hover {
+  -webkit-box-shadow: 0.5rem 0.5rem 2rem rgba(78, 53, 53, 0.5);
+          box-shadow: 0.5rem 0.5rem 2rem rgba(78, 53, 53, 0.5);
+  -webkit-transition-delay: .1s;
+          transition-delay: .1s;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.section-form form fieldset .controles label {
+  font-size: 1.5rem;
+  margin: .5rem;
+}
+
+.section-form form fieldset .controles #send {
+  background-color: olivedrab;
+  color: white;
+  border: 0;
+  padding: 2rem 0;
+}
+
+.section-form form fieldset .controles #send:hover {
+  cursor: pointer;
+}
+
+.section-productos {
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.section-productos table {
+  border: 0.1rem solid #bb622e;
+  border-radius: .5rem;
+  border-collapse: collapse;
+}
+
+.section-productos table thead tr th {
+  font-size: 2rem;
+  text-transform: capitalize;
+  padding: 1rem;
+  border: 0.1rem solid #bb622e;
+}
+
+.section-productos table tbody tr:nth-child(even) {
+  background-color: blanchedalmond;
+}
+
+.section-productos table tbody tr td {
+  border: 0.1rem solid #bb622e;
+  padding: 1rem;
+  text-align: center;
+}
+
+.section-productos table tbody tr td img {
+  width: 3rem;
+}
+
+.section-productos table tbody tr td img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(2, 2);
+          transform: scale(2, 2);
+  -webkit-transition-delay: .1s;
+          transition-delay: .1s;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.whatsapp {
+  bottom: 5rem;
+  right: 0rem;
+  position: fixed;
+}
+
+.whatsapp:hover {
+  cursor: pointer;
+}
+
+.whatsapp img:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition-delay: .1s;
+          transition-delay: .1s;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.dialogo {
+  border-radius: 1rem;
+  position: absolute;
+  top: 10vh;
+  left: 66vw;
+  background-color: white;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .dialogo {
+    width: 80vw;
+    left: auto;
+  }
+}
+
+.dialogo .dialogo__btn-cierra {
+  position: relative;
+  top: 10%;
+  left: 90%;
+  border: 0;
+  border-radius: 5rem;
+  padding: 1rem 1.5rem;
+  background-color: steelblue;
+  color: white;
+}
+
+.dialogo .dialogo__btn-cierra:hover {
+  cursor: pointer;
+}
+
+.dialogo .dialogo__btn-cierra:active {
+  -webkit-transform: scale(0.9, 0.9);
+          transform: scale(0.9, 0.9);
+}
+
+.dialogo-chat {
+  background-color: whitesmoke;
+  width: 50rem;
+}
+
+@-webkit-keyframes neon {
+  0% {
+    color: #1a1a1a;
+    text-shadow: #ffc2fa;
+  }
+  20% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+}
+
+@keyframes neon {
+  0% {
+    color: #1a1a1a;
+    text-shadow: #ffc2fa;
+  }
+  20% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    color: #1a1a1a;
+    text-shadow: 0 0 10px steelblue;
+  }
+}
+
+.container {
+  border-radius: .5rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .chat-websocket {
+  border-radius: .5rem;
+  margin: 1rem;
+  -webkit-box-shadow: 0.5rem 0.5rem 2rem gray;
+          box-shadow: 0.5rem 0.5rem 2rem gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40rem;
+}
+
+.container .chat-websocket .websocket-actions {
+  font-size: 1.2rem;
+}
+
+.container .chat-websocket .websocket-actions p {
+  margin: 1rem;
+  text-shadow: 0 0 1rempx #ff8a3cce;
+  -webkit-animation: neon 2s ease-in infinite forwards;
+          animation: neon 2s ease-in infinite forwards;
+}
+
+.container .chat-websocket .websocket-controls {
+  margin: 0.5rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .chat-websocket .websocket-controls input,
+.container .chat-websocket .websocket-controls textarea {
+  border: 0.1rem solid grey;
+  padding: 0.5rem 2rem;
+  margin: 0.5rem;
+  resize: none;
+}
+
+.container .chat-websocket .websocket-controls input:hover {
+  cursor: pointer;
+}
+
+.container .chat-websocket .websocket-compresion {
+  font-size: 2rem;
+}
+
+.container .chat-websocket .websocket-messages {
+  margin: 1rem;
+  font-size: 1.6rem;
+}
+
+.container .chat-websocket .websocket-messages p {
+  margin-top: .5rem;
+  padding: .5rem 3rem;
+  -webkit-box-shadow: .1rem .1rem 1rem gray;
+          box-shadow: .1rem .1rem 1rem gray;
+}
+
+.container .chat-websocket .websocket-messages p span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.messages-me {
+  margin-right: 2rem;
+  background-color: rgba(116, 160, 95, 0.589);
+}
+
+.messages-other {
+  margin-left: 2rem;
+  background-color: rgba(51, 141, 153, 0.493);
+}
+
+@keyframes neon {
+  0% {
+    color: #1a1a1a;
+    text-shadow: #ff8a3cce;
+  }
+  20% {
+    color: #969696;
+    text-shadow: 0 0 1rem #ff8a3cce;
+    opacity: 50;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    color: #ff8a3cce;
+    text-shadow: 0 0 1rem #ff8a3cce;
+  }
+}
+
+.saludo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: aquamarine;
+  font-size: 2rem;
+}
+
+.saludo input {
+  margin: 2rem;
+  padding: 1rem 3rem;
+  background-color: tomato;
+  border: 0;
+  color: whitesmoke;
+}
+
+.saludo input:hover {
+  cursor: pointer;
+}
+
+.saludo input:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+/*# sourceMappingURL=style.css.map */
