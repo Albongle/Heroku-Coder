@@ -15,9 +15,12 @@ const createThead = (arrObjetos)=>{
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
     if(Array.isArray(arrObjetos))
-    {
+    {   
         for (const iterator in arrObjetos[0]){
-            if(iterator === "id" || iterator == "desc"){
+            if(iterator === "id"){
+                tr.innerHTML+= `<th>ACCION</th>`;
+            }
+            else if(iterator == "desc"){
                 continue;
             }
             else if(iterator === "urlImg"){
@@ -28,6 +31,7 @@ const createThead = (arrObjetos)=>{
            
         }
     }
+
     thead.appendChild(tr);
     return thead;
 }
@@ -40,7 +44,9 @@ const createTbody = (arrObjetos)=>{
             const tr = document.createElement("tr");
             for (const iterator in element) {
                 if(iterator === "id"){
+
                     tr.setAttribute("data-id",element[iterator]);
+                    tr.innerHTML+= `<td><button class="btn-comprar">Comprar</button></td>`;
                 }else if(iterator === "urlImg"){
                     tr.innerHTML+=`<td><img src="${element[iterator]}" alt="${element["title"]}"></td>`
                 }else if(iterator === "desc"){

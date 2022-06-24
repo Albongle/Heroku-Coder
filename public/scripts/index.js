@@ -7,6 +7,7 @@ const send = document.getElementById("cargar");
 const form = document.getElementById("formulario");
 const inputs = document.querySelectorAll(".controles input");
 
+
 socket.on("refresh-productos",(data)=>{
     renderObjetos(data);
 });
@@ -16,6 +17,8 @@ window.addEventListener("DOMContentLoaded",async ()=>{
     send.addEventListener("click",handlerAddProducto);
     let datos = await getDatosFetch("/api/productos-test");
     renderObjetos(datos.productosFaker);
+    document.querySelectorAll(".btn-comprar").forEach(btn => btn.addEventListener("click", handlerComprarProducto));
+
 })
 
 const handlerAddProducto= async(event)=>{
@@ -31,6 +34,11 @@ const deleteForm = ()=>{
     
     inputs.forEach(e => e.value = "");
 }
+
+const handlerComprarProducto = (event)=>{
+
+    console.log(event.target.parentNode.parentNode.dataset.id);
+};
 
 
 

@@ -82,6 +82,17 @@ html {
 .section-productos table tbody tr:nth-child(even) {
   background-color: blanchedalmond;
 }
+.section-productos table tbody tr button {
+  align-self: center;
+  padding: 1rem 3rem;
+  border: 0;
+  border-radius: 5rem;
+  background-color: tomato;
+  color: whitesmoke;
+}
+.section-productos table tbody tr button:active {
+  transform: scale(0.9);
+}
 .section-productos table tbody tr td {
   border: 0.1rem solid rgb(187, 98, 46);
   padding: 1rem;

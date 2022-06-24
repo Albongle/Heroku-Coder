@@ -3,6 +3,7 @@ const {Strategy:localStrategy} = require("passport-local");
 const UsuariosDAO = require("../../dao/usuariosDAOMongoDb");
 const { encriptarPassword, esPassWordValido } = require("../bcrypt/bcrypt");
 const enviarCorreoElectronico = require("../nodemailer/nodemailer");
+const enviarSms = require("../twilio/twilio");
 const gestorUsuario = new UsuariosDAO();
 
 
@@ -16,6 +17,7 @@ passport.use("login", new localStrategy(async (username, password, done)=>{
     if(usuario){
         return done(null, usuario);
     }
+    enviarSms();
     return done(null,false);
 }));
 

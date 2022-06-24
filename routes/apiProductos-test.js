@@ -21,6 +21,7 @@ function informacionAleatoria(){
     productosFaker.splice(0,productosFaker.length);
     for (let index = 0; index < 10; index++) {
         const obj = {
+            id:faker.random.alphaNumeric(5),
             urlImg: faker.image.image(),
             desc: faker.lorem.lines(),
             nombre: faker.commerce.productName(),

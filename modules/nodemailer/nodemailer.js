@@ -22,7 +22,7 @@ async function enviarCorreoElectronico(usuario,asunto, mensajeHtml){
 
     }
     catch(error){
-        logger.getLogger("error").error(`error en servidor ${error}`);
+        logger.getLogger("error").error(`error al enviar un mail ${error}`);
     }
 }
 
