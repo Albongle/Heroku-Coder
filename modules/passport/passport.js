@@ -17,7 +17,7 @@ passport.use("login", new localStrategy(async (username, password, done)=>{
     if(usuario){
         return done(null, usuario);
     }
-    enviarSms();
+    enviarSms("+5491134925771", "sms de prueba");
     return done(null,false);
 }));
 

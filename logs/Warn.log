@@ -265,3 +265,6 @@
 [2022-06-24T16:42:45.972] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
 [2022-06-24T16:42:54.457] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
 [2022-06-24T16:43:27.764] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-24T16:49:32.165] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-24T16:49:35.079] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-24T16:49:51.010] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }

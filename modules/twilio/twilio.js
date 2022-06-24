@@ -4,15 +4,15 @@ const logger = require("../../logs/logger");
 
 const cliente = twilio(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
 
-async function enviarSms(){
+async function enviarSms(destinatario, mensaje){
     try{
-        const mensaje = await cliente.messages.create({
+        const respuesta = await cliente.messages.create({
             from: "+19785103201",
-            to: "+5491134925771",
-            body: `Este es un mensaje de prueba desde Node`
+            to: destinatario,
+            body: mensaje
 
         });
-        logger.getLogger().info(`mensaje enviado ${mensaje}}`);
+        logger.getLogger().info(`mensaje enviado ${respuesta}}`);
     }
     catch(error){
         logger.getLogger("error").error(`error a enviar un sms ${error}`);
