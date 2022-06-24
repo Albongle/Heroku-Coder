@@ -8,7 +8,7 @@ const btnAbre = document.querySelector("#btn-open-chat");
 const dialogoChat = document.querySelector("#dialogo-chat");
 
 
-message.addEventListener("keyup", (event) => {
+message.addEventListener("keyup", (_event) => {
   if((message.value != "")){
     eventTiping("tiping");
   }else{
