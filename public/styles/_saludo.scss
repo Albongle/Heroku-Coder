@@ -1,4 +1,5 @@
 .saludo{
+    
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -6,6 +7,12 @@
     align-content: center;
     background-color: aquamarine;
     font-size: 2rem;
+    img{
+        margin: 1rem;
+        align-self: center;
+        width: 6.4rem;
+        border-radius: 10rem;
+    }
     input{
         margin: 2rem;
         padding: 1rem 3rem;
