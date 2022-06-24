@@ -2,6 +2,7 @@ const passport = require("passport");
 const {Strategy:localStrategy} = require("passport-local");
 const UsuariosDAO = require("../../dao/usuariosDAOMongoDb");
 const { encriptarPassword, esPassWordValido } = require("../bcrypt/bcrypt");
+const enviarCorreoElectronico = require("../nodemailer/nodemailer");
 const gestorUsuario = new UsuariosDAO();
 
 
@@ -29,6 +30,7 @@ passport.use("alta", new localStrategy({ passReqToCallback: true },async (req,us
     const {username:email,password,edad,direccion, nombre, telefono} = req.body;
     const usuario ={username:email,password:encriptarPassword(password),edad,direccion,nombre,telefono, img};
     await gestorUsuario.addElementos(usuario);
+    await enviarCorreoElectronico(username, `Bienvenido ${nombre}`, `<h1>Usted se ha dado de alta de forma exitosa en la app de Alejandro Bongioanni</h1>`);
     return done(null,usuario);
  }));
 
