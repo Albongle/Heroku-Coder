@@ -65,7 +65,7 @@ function startServer(puerto){
             io.sockets.emit("new:message", data);
             gestorChatsDao.addElementos(data)
             .then(()=>gestorChatsDao.getAllElementos()
-            .then(message=> console.log(message))); 
+            .then(message=> logger.getLogger().info(`nuevo mensaje recibido ${message}`))); 
         });
     });
     app.io = io;

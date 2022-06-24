@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 
-function esPassWordValido(usuario, password){
-    return bcrypt.compareSync(password,usuario.password);
+function esPassWordValido(passwordEncriptado, password){
+    return bcrypt.compareSync(password,passwordEncriptado);
 }
 
-function encriptarPassword(usuario){
-    return bcrypt.hashSync(usuario.password, bcrypt.genSaltSync(10,null));
+function encriptarPassword(password){
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10,null));
 }
 
 module.exports = {esPassWordValido, encriptarPassword};

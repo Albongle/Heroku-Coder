@@ -11,7 +11,7 @@ const gestorUsuario = new UsuariosDAO();
 passport.use("login", new localStrategy(async (username, password, done)=>{
 
     const usuarios = await gestorUsuario.getAllElementos();
-    const usuario = usuarios.find(u=> u.username == username && esPassWordValido(u,password));
+    const usuario = usuarios.find(u=> u.username == username && esPassWordValido(u.password,password));
     if(usuario){
         return done(null, usuario);
     }
@@ -26,10 +26,8 @@ passport.use("alta", new localStrategy({ passReqToCallback: true },async (req,us
         return done(null,false);
     }
     const img = req.file.filename;
-    
-    const usuario ={...req.body, img};
-    const password = encriptarPassword(usuario);
-    usuario.password = password;
+    const {username:email,password,edad,direccion, nombre, telefono} = req.body;
+    const usuario ={username:email,password:encriptarPassword(password),edad,direccion,nombre,telefono, img};
     await gestorUsuario.addElementos(usuario);
     return done(null,usuario);
  }));

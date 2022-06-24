@@ -1,6 +1,5 @@
 const socket = io(); // con el io cierro la conexion entre el servidor y el cliente
 const message = document.querySelector("#message");
-const user = document.querySelector("#user");
 const actions = document.querySelector("#websocket-actions");
 const send = document.querySelector("#sendMessage");
 const messages = document.querySelector("#websocket-messages");
@@ -10,14 +9,7 @@ const dialogoChat = document.querySelector("#dialogo-chat");
 
 
 message.addEventListener("keyup", (event) => {
-  const exp = new RegExp("[a-zA-Z]+[0-9]?");
-  if (!exp.test(user.value)) {
-
-    alert("Debe ingresar un usuario o nombre valido");
-    message.value = "";
-    user.value = "";
-    user.focus();
-  }else if((message.value != "")){
+  if((message.value != "")){
     eventTiping("tiping");
   }else{
     eventTiping("notiping");
@@ -27,26 +19,15 @@ message.addEventListener("keyup", (event) => {
 
 send.addEventListener("click",()=>{
 
-  const exp = new RegExp("^ *$");
-  if(message.value.length>0 && !exp.test(message.value)){
+  
+  if(message.value.trim()!=""){
     eventNewMessage();
   }
 
   
 });
 
-user.addEventListener("change",()=>{
-  const exp = new RegExp("[a-zA-Z]+[0-9]?");
-  if (exp.test(user.value)) {
-    message.removeAttribute("disabled");
-    send.removeAttribute("disabled");
-  }else{
-    message.setAttribute("disabled",true);
-    send.setAttribute("disabled",true);
-    alert("Debe ingresar un usuario o nombre valido");
-  }
-    
-});
+
 
 btnAbre.addEventListener("click",()=>{
   dialogoChat.setAttribute("open","true");
