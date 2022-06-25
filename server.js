@@ -7,6 +7,7 @@ function startServer(puerto){
     const path = require("path");
     const socketIo= require("socket.io");
     const apiUsuario = require("./routes/apiUsuario");
+    const apiCarrito = require("./routes/apiCarrito");
     const apiFaker = require("./routes/apiProductos-test");
     const apiInfo = require("./routes/apiInfo");
     const apiRandom = require("./routes/apiRandom");
@@ -33,6 +34,7 @@ function startServer(puerto){
     app.use("/api/info", apiInfo);
     app.use("/api/randoms", apiRandom);
     app.use("/api/productos-test", apiFaker);
+    app.use("/api/carrito", apiCarrito);
 
     app.get("/puerto",(_req,res)=>{
         res.send(`servidor escuchando en ${app.get("port")}, proceso ${process.pid}`);

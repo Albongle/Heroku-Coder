@@ -3,7 +3,7 @@ const {Strategy:localStrategy} = require("passport-local");
 const UsuariosDAO = require("../../dao/usuariosDAOMongoDb");
 const { encriptarPassword, esPassWordValido } = require("../bcrypt/bcrypt");
 const enviarCorreoElectronico = require("../nodemailer/nodemailer");
-const enviarSms = require("../twilio/twilio");
+const mensajero = require("../twilio/twilio");
 const gestorUsuario = new UsuariosDAO();
 
 
@@ -15,9 +15,11 @@ passport.use("login", new localStrategy(async (username, password, done)=>{
     const usuarios = await gestorUsuario.getAllElementos();
     const usuario = usuarios.find(u=> u.username == username && esPassWordValido(u.password,password));
     if(usuario){
+        await mensajero.enviarWhatsApp("+5491134925771", "sms de prueba");
         return done(null, usuario);
+
     }
-    enviarSms("+5491134925771", "sms de prueba");
+    
     return done(null,false);
 }));
 

@@ -13,3 +13,6 @@
 [2022-06-23T21:10:06.680] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-06-23T21:10:19.803] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-06-23T21:10:26.048] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-06-24T17:09:26.719] [ERROR] error - error a enviar un whatsapp Error: Twilio could not find a Channel with the specified From address
+[2022-06-24T17:12:02.005] [ERROR] error - error a enviar un whatsapp Error: Twilio could not find a Channel with the specified From address
+[2022-06-24T17:13:46.579] [ERROR] error - error a enviar un whatsapp Error: Twilio could not find a Channel with the specified From address

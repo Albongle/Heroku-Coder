@@ -31,7 +31,6 @@ router.get("/",mdw.validarSession,(_req, res)=>{
 });
 
 router.get("/login",mdw.validarSession,(req, res)=>{
-    console.log(req.user)
     res.status(200).render("pages/home",{usuario:req.user.username, foto:req.user.img});
 }); 
 router.get("/failLogin",(_req, res)=>{
