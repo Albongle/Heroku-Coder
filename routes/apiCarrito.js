@@ -33,7 +33,7 @@ router.post("/:id/productos",mdw.validarSession,async (req, res)=>{
 
     let {id}=req.params;
     const objeto = req.body;
-    if(await gestorCarrito.updateElemento(id, {productos:objeto})){
+    if(await gestorCarrito.updateElemento(id, {username:req.session.passport.user.username,productos:objeto})){
         res.status(200).json({status:"carrito actualizado"});
     }else{
         res.status(406).json({error:'Carrito no encontrado'});
@@ -48,7 +48,7 @@ router.delete("/:id/productos/:id_productos",mdw.validarSession,async (req, res)
         let indice = respuesta.productos.findIndex(x=> x._id=== id_productos);
         if(indice>0){
             const resultado = respuesta.productos.splice(indice,1);
-            await gestorCarrito.updateElemento(id,{productos:resultado});
+            await gestorCarrito.updateElemento(id,{username:req.session.passport.user.username,productos:resultado});
             res.status(200).json({status:"ok", message:"carrito actualizado"});
         }else{
             res.status(406).json({error:'Producto no encontrado en el carrito'});

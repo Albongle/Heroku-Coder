@@ -15,9 +15,7 @@ passport.use("login", new localStrategy(async (username, password, done)=>{
     const usuarios = await gestorUsuario.getAllElementos();
     const usuario = usuarios.find(u=> u.username == username && esPassWordValido(u.password,password));
     if(usuario){
-        await mensajero.enviarWhatsApp("+5491134925771", "sms de prueba");
         return done(null, usuario);
-
     }
     
     return done(null,false);
