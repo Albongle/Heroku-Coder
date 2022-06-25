@@ -317,3 +317,6 @@
 [2022-06-25T12:16:09.069] [WARN] warn - { ruta: '/favicon.ico', metodo: 'GET' }
 [2022-06-25T12:16:20.176] [WARN] warn - { ruta: '/favicon.ico', metodo: 'GET' }
 [2022-06-25T12:17:10.529] [WARN] warn - { ruta: '/favicon.ico', metodo: 'GET' }
+[2022-06-25T12:22:51.252] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-25T12:22:52.170] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-25T12:23:02.834] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }

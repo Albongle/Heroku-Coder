@@ -8,6 +8,7 @@ const gestorCarrito = new carritoDAO();
 router.post("",mdw.validarSession, async (req, res)=>{
     const objeto = req.body;
     const respuesta = await gestorCarrito.addElementos({username:req.session.passport.user.username,productos:objeto});
+    req.app.io.sockets.emit("refresh-carrito",respuesta);
     res.status(200).json({idCarrito:respuesta});
 
 });

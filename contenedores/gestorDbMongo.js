@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const logger = require("../logs/logger");
 module.exports = class GestorDbMongo{
 
     #coleccion;
@@ -15,10 +16,10 @@ module.exports = class GestorDbMongo{
     async #setConexion(){
         try{
             await mongoose.connect(this.#cadenaConexion);
-            console.log(`conexion a mongo establecida`);
+            logger.getLogger().info(`conexion a mongo establecida`);
         }
         catch(error){
-            console.error(error);
+            logger.getLogger("error").error(error);
         }
 
     }
@@ -27,11 +28,11 @@ module.exports = class GestorDbMongo{
         try{
             this.#setConexion();
             const respuesta = await this.#modelo.insertMany(elementos);
-            console.log(`Se agregaron los elementos`);
+            logger.getLogger().info(`Se agregaron los elementos`);
             return respuesta;
         }
         catch(error){
-            console.error(`${error}`);
+            logger.getLogger("error").error(`${error}`);
         }
     }
 
@@ -44,7 +45,7 @@ module.exports = class GestorDbMongo{
             return respuesta;
         }
         catch(error){
-            console.error(`${error}`);
+            logger.getLogger("error").error(`${error}`);
         }
     }
 
@@ -55,7 +56,7 @@ module.exports = class GestorDbMongo{
             return respuesta;
         }
         catch(error){
-            console.error(`${error}`);
+            logger.getLogger("error").error(`${error}`);
         }
 
     }
@@ -68,7 +69,7 @@ module.exports = class GestorDbMongo{
 
         }
         catch(error){
-            console.error(`${error}`);
+            logger.getLogger("error").error(`${error}`);
         }
         return false;
 
@@ -81,7 +82,7 @@ module.exports = class GestorDbMongo{
             return true;
         }
         catch(error){
-            console.error(`${error}`);
+            logger.getLogger("error").error(`${error}`);
         }
         return false;
     }
