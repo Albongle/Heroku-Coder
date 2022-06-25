@@ -6,18 +6,22 @@ const socket = io();
 const send = document.getElementById("cargar");
 const form = document.getElementById("formulario");
 const inputs = document.querySelectorAll(".controles input");
-
+const productos = [];
 
 socket.on("refresh-productos",(data)=>{
     renderObjetos(data);
+});
+
+socket.on("refresh-carrito",(data)=>{
+    console.log(data);
 });
 
 
 window.addEventListener("DOMContentLoaded",async ()=>{
     send.addEventListener("click",handlerAddProducto);
     try{
-        let datos = await getDatosFetch("/api/productos-test");
-        renderObjetos(datos.productosFaker);
+        productos.push(...(await getDatosFetch("/api/productos-test")).productosFaker);
+        renderObjetos(productos);
         document.querySelectorAll(".btn-comprar").forEach(btn => btn.addEventListener("click", handlerComprarProducto));
     }
     catch(error){
@@ -25,7 +29,7 @@ window.addEventListener("DOMContentLoaded",async ()=>{
     }
 
 
-})
+});
 
 const handlerAddProducto= async(event)=>{
     event.preventDefault();
@@ -39,7 +43,7 @@ const handlerAddProducto= async(event)=>{
         console.error(error);
     }
     deleteForm();
-};
+}
 
 
 const deleteForm = ()=>{
@@ -47,10 +51,18 @@ const deleteForm = ()=>{
     inputs.forEach(e => e.value = "");
 }
 
-const handlerComprarProducto = (event)=>{
+const handlerComprarProducto = async (event)=>{
 
-    console.log(event.target.parentNode.parentNode.dataset.id);
-};
+    const productoComprado = productos.find(p=> p.id === event.target.parentNode.parentNode.dataset.id);
+    try{
+        productoComprado.cantidad = 1;
+        await postDatosFetch("/api/carrito", productoComprado);
+    }
+    catch(error){
+        console.error(error);
+    }
+
+}
 
 
 

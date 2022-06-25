@@ -41,8 +41,20 @@ module.exports = class GestorDbMongo{
 
         try{
             this.#setConexion();
-            const respuesta = await this.#modelo.find();
-            return respuesta;
+            return this.#modelo.find();
+        }
+        catch(error){
+            logger.getLogger("error").error(`${error}`);
+        }
+    }
+
+    async getElementosByParams(value,filtro)
+    {
+
+        try{
+            this.#setConexion();
+            const consulta = JSON.parse(`"{${filtro}:${value}}"`);
+            return this.#modelo.find({consulta}).exec();
         }
         catch(error){
             logger.getLogger("error").error(`${error}`);
@@ -52,8 +64,7 @@ module.exports = class GestorDbMongo{
     async getElementoById(id){
         try{
             this.#setConexion();
-            const respuesta = await this.#modelo.findById(id);
-            return respuesta;
+            return this.#modelo.findById(id);
         }
         catch(error){
             logger.getLogger("error").error(`${error}`);
@@ -65,13 +76,11 @@ module.exports = class GestorDbMongo{
         try{
             this.#setConexion();
             await this.#modelo.findByIdAndUpdate(id,objeto);
-            return true;
-
         }
         catch(error){
             logger.getLogger("error").error(`${error}`);
         }
-        return false;
+        return this.getAllElementos();
 
     }
     async deleteElementoById(id)
@@ -79,12 +88,11 @@ module.exports = class GestorDbMongo{
         try{
             this.#setConexion();
             await this.#modelo.findByIdAndDelete(id);
-            return true;
         }
         catch(error){
             logger.getLogger("error").error(`${error}`);
         }
-        return false;
+        return this.getAllElementos();
     }
 
 }

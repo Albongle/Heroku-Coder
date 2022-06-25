@@ -7,7 +7,7 @@ const esquema = {
 
 module.exports = class CarritoDAOMongo extends GestorDbMongo{
 
-    constructor(){
-        super(process.env.STRING_CONECTION,"carrito",esquema);   
+      constructor(){
+        super(process.env.STRING_CONNECTION,"carrito",esquema);   
       }
 }

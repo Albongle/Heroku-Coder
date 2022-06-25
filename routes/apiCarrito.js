@@ -1,4 +1,5 @@
 const express = require("express");
+const agregarProdcutoAlCarrito = require("../controllers/carritoController");
 const router = express.Router();
 const carritoDAO = require("../dao/carritoDAOMongoDb");
 const mdw = require("../middlewares/middlewares");
@@ -7,9 +8,10 @@ const gestorCarrito = new carritoDAO();
 
 router.post("",mdw.validarSession, async (req, res)=>{
     const objeto = req.body;
-    const respuesta = await gestorCarrito.addElementos({username:req.session.passport.user.username,productos:objeto});
-    req.app.io.sockets.emit("refresh-carrito",respuesta);
-    res.status(200).json({idCarrito:respuesta});
+    const respuesta = await agregarProdcutoAlCarrito(gestorCarrito,req.session.passport.user.username,objeto);
+    
+    req.app.io.sockets.emit("refresh-carrito",{carrito:respuesta});
+    res.status(200).json({carrito:respuesta});
 
 });
 router.delete("/:id",mdw.validarSession, async (req, res)=>{
