@@ -1,11 +1,9 @@
 import { getDatosFetch, postDatosFetch, deleteDatosFetch } from "./modules/fetch.js";
 import { renderObjetos } from "./modules/render.js";
-import { Producto } from "./modules/producto.js";
+
 
 const socket = io();
-const send = document.getElementById("cargar");
-const form = document.getElementById("formulario");
-const inputs = document.querySelectorAll(".controles input");
+
 const sectionProductos = document.querySelector("#section-productos");
 const sectionCarrito = document.querySelector("#section-carrito");
 const productos = [];
@@ -24,13 +22,17 @@ socket.on("refresh-carrito",(data)=>{
     productosCarrito.splice(0, productosCarrito.length);
     productosCarrito.push(...data.carrito.productos);
     carrito = data.carrito;
-    renderObjetos(sectionCarrito,mapearProductosDelCarrito(productosCarrito),"Eliminar","Carrito");
-    document.querySelectorAll(".btn-Eliminar").forEach(btn => btn.addEventListener("click", handlerEliminarProducto));
+    if(productosCarrito.length>0){
+        renderObjetos(sectionCarrito,mapearProductosDelCarrito(productosCarrito),"Eliminar","Carrito");
+        document.querySelectorAll(".btn-Eliminar").forEach(btn => btn.addEventListener("click", handlerEliminarProducto));
+        document.querySelector("#btn-procesar-compra").addEventListener("click", handlerProcesarCompra);
+    }
+
 });
 
 
 window.addEventListener("DOMContentLoaded",async ()=>{
-    send.addEventListener("click", handlerAddProducto);
+
     try{
         await getDatosFetch("/api/productos-test");
         await getDatosFetch("/api/carrito");
@@ -40,25 +42,7 @@ window.addEventListener("DOMContentLoaded",async ()=>{
     }
 });
 
-const handlerAddProducto= async(event)=>{
-    event.preventDefault();
-    let obj = new Producto(form.urlImg.value,form.nombre.value,form.marca.value,form.gama.value,form.tipo.value,parseInt(form.stock.value),
-    parseInt(form.precio.value),parseInt(form.cuotas.value));
-    try{
 
-        await postDatosFetch("/api/productos-test",obj);
-    }
-    catch(error){
-        console.error(error);
-    }
-    deleteForm();
-}
-
-
-const deleteForm = ()=>{
-
-    inputs.forEach(e => e.value = "");
-}
 
 const handlerComprarProducto = async (event)=>{
 
@@ -94,6 +78,11 @@ const handlerEliminarProducto = async (event)=>{
         }
     }
 
+}
+
+
+const handlerProcesarCompra = (event)=>{
+    alert("procesar compra");
 }
 
 

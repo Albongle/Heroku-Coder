@@ -27,7 +27,6 @@ module.exports = class CarritoController{
                     carritoDelUsuario.productos.push(producto);
                 }
                 data =  await gestorCarrito.updateElemento(carritoDelUsuario._id,carritoDelUsuario);
-                console.log(`este es el data de la actualizacion ${data}`);
             }
             else{
                 data = await gestorCarrito.addElementos({username:username,productos:producto});
@@ -77,12 +76,11 @@ module.exports = class CarritoController{
     static async borraUnProductoDeUnCarrito(idCarrito, idProducto, username){
 
         if(idCarrito && idProducto && username){
-            console.log("entre aca");
             const carrito = await gestorCarrito.getElementoById(idCarrito);
             if(carrito){
                 const productosAux = carrito.productos.filter(p=> p.id !== idProducto);
                 const data = (await gestorCarrito.updateElemento(idCarrito,{username:username,productos:productosAux})).filter(c => c.username === username);
-                
+                    
                 return {status:"ok",code:200,message:`Se elimino el producto id ${idProducto}, del carrito con id ${idCarrito}`, carrito:data.shift()};
             }
             return {status:"error",message:'Carrito no encontrado', code:406};

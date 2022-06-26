@@ -63,7 +63,7 @@ html {
 }
 
 .section-productos {
-  margin-top: 5rem;
+  margin: 5rem;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -116,6 +116,17 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.section-carrito input {
+  padding: 1rem 3rem;
+  border: 0;
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  margin: 1rem;
+}
+.section-carrito input:active {
+  transform: scale(0.9);
 }
 .section-carrito table {
   width: 50%;
@@ -175,8 +186,8 @@ html {
 .dialogo {
   border-radius: 1rem;
   position: absolute;
-  top: 10vh;
-  left: 66vw;
+  top: 50vh;
+  left: 50vw;
   background-color: white;
   border: 0;
 }

@@ -39,10 +39,9 @@ router.post("/:id/productos",mdw.validarSession,async (req, res)=>{
 
 });
 router.delete("/:idCarrito/productos/:idProducto",mdw.validarSession,async (req, res)=>{
-    console.log("uso este endpoint")
+
     let {idCarrito,idProducto}=req.params;
     const respuesta  = await CarritoController.borraUnProductoDeUnCarrito(idCarrito, idProducto,req.session.passport.user.username);
-    console.log(respuesta);
     req.app.io.sockets.emit("refresh-carrito",{carrito:respuesta.carrito});
     res.status(respuesta.code).json(respuesta);
 });

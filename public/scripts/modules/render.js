@@ -1,7 +1,13 @@
 
 export const renderObjetos = (node,arrObjeto,accion,titulo)=>{
 
-    node.innerHTML =`<h2>${titulo}</h2>`;
+
+    if(accion === "Eliminar"){
+        node.innerHTML =`<h2>${titulo}</h2> <input type="button" name="comprar" id="btn-procesar-compra" value="Enviar Pedido">`;  
+    }
+    else{
+        node.innerHTML =`<h2>${titulo}</h2>`;
+    }
     node.appendChild(createTable(arrObjeto,accion));
 }
 
