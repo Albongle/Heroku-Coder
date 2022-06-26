@@ -20,7 +20,7 @@ socket.on("refresh-productos",(data)=>{
 });
 
 socket.on("refresh-carrito",(data)=>{
-    console.log(data)
+    console.log(data);
     productosCarrito.splice(0, productosCarrito.length);
     productosCarrito.push(...data.carrito.productos);
     carrito = data.carrito;

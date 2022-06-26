@@ -48,19 +48,6 @@ module.exports = class GestorDbMongo{
         }
     }
 
-    async getElementosByParams(value,filtro)
-    {
-
-        try{
-            this.#setConexion();
-            const consulta = JSON.parse(`"{${filtro}:${value}}"`);
-            return this.#modelo.find({consulta}).exec();
-        }
-        catch(error){
-            logger.getLogger("error").error(`${error}`);
-        }
-    }
-
     async getElementoById(id){
         try{
             this.#setConexion();

@@ -112,7 +112,7 @@ html {
 
 .section-carrito {
   background-color: white;
-  margin-top: 5rem;
+  margin: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;

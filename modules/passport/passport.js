@@ -32,7 +32,18 @@ passport.use("alta", new localStrategy({ passReqToCallback: true },async (req,us
     const {username:email,password,edad,direccion, nombre, telefono} = req.body;
     const usuario ={username:email,password:encriptarPassword(password),edad,direccion,nombre,telefono, img};
     await gestorUsuario.addElementos(usuario);
-    await enviarCorreoElectronico(username, `Bienvenido ${nombre}`, `<h1>Usted se ha dado de alta de forma exitosa en la app de Alejandro Bongioanni</h1>`);
+    const plantillaBienvenida = `<section style="background-color: blanchedalmond;">
+    <h1>Bienvenido ${nombre}</h1><br>
+    <p>Usted se ha dado de alta de forma exitosa en la app de Alejandro Bongioanni</p><br>
+    <ul>
+        <li>Usuario: ${username}</li>
+        <li>Nombre: ${nombre}</li>
+        <li>Edad: ${edad}</li>
+        <li>Direccion: ${direccion}</li>
+        <li>Telefono: ${telefono}</li>
+    </ul>
+    </section>`;
+    await enviarCorreoElectronico(username, `Bienvenido ${nombre}`, plantillaBienvenida);
     return done(null,usuario);
  }));
 
