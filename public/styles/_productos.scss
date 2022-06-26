@@ -1,10 +1,12 @@
 .section-productos{
     margin-top: 5rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
     justify-content: center;
+    align-items: center;
     table{
-        
+        width: 80%;
         border: .1rem solid rgb(187, 98, 46);
         border-radius: .5rem;
         border-collapse: collapse;
@@ -27,8 +29,7 @@
                     padding: 1rem 3rem;
                     border: 0;
                     border-radius: 5rem;
-                    background-color: tomato;
-                    color: whitesmoke;
+                    background-color: rgb(125, 188, 32);
                     &:active{
                         transform: scale(.9);
                     }

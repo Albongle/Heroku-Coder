@@ -2,6 +2,17 @@ const carritoDAO = require("../dao/carritoDAOMongoDb");
 const gestorCarrito = new carritoDAO();
 module.exports = class CarritoController{
 
+    static async obtenerCarritoDeUnUsuario(username){
+        if(username){
+            const carritoDelUsuario = (await gestorCarrito.getElementosByParams(username,"username")).shift();
+            if(carritoDelUsuario){
+                
+                return {status:"ok",code:200,message:`Solicitud procesada exitosamente`, carrito:carritoDelUsuario};
+            }
+            return {status:"ok",code:204,message:`Sin contenido`};
+        }
+        return {status:"error",code:404,message:`No se recibieron algunos de los datos necesarios para obtener el carrito`};
+    }
     static async agregarProductoAlCarrito(username, producto){
         let data;
         if(username && producto){
@@ -30,7 +41,7 @@ module.exports = class CarritoController{
         if(id){
             const data =  await gestorCarrito.deleteElementoById(id);
             if(data.length>0){
-                return {status:"ok",code:200,message:`Se elimino el carrito con id ${id}`, carrito:data};
+                return {status:"ok",code:200,message:`Se elimino el carrito con id ${id}`, carrito:data.shift()};
             }
             return {status:"error",message:'Carrito no encontrado', code:406};
         }
@@ -41,7 +52,7 @@ module.exports = class CarritoController{
         if(id){
             const data =  await gestorCarrito.getElementoById(id);
             if(data != null){
-                return {status:"ok",code:200,message:`Solicitud procesada exitosamente`, carrito:data};
+                return {status:"ok",code:200,message:`Solicitud procesada exitosamente`, carrito:data.shift()};
             }
             return {status:"error",message:'Carrito no encontrado', code:406};
         }
@@ -52,25 +63,20 @@ module.exports = class CarritoController{
         if(id && objeto){
             const data = await gestorCarrito.updateElemento(id, objeto);
             if(data.length>0){
-                return {status:"ok",code:200,message:`Se actualizo el carrito con id ${id}`, carrito:data};
+                return {status:"ok",code:200,message:`Se actualizo el carrito con id ${id}`, carrito:data.shift()};
             }
             return {status:"error",message:'Carrito no encontrado', code:406};
         }
         return {status:"error",code:404,message:`No se recibieron algunos de los datos necesarios`};
     }
-    static async borraUnProductoDeUnCarrito(idCarrito, idProducto){
+    static async borraUnProductoDeUnCarrito(idCarrito, idProducto, username){
 
-        if(idCarrito && idProducto){
+        if(idCarrito && idProducto && username){
             const carrito = await gestorCarrito.getElementoById(idCarrito);
-
-            if(carrito != null){
-                let indice = carrito.productos.findIndex(p=> p.id === idProducto);
-                if(indice>0){
-                    const productosAux = carrito.productos.splice(indice,1);
-                    const data = await gestorCarrito.updateElemento(idCarrito,{username:req.session.passport.user.username,productos:productosAux});
-                    return {status:"ok",code:200,message:`Se elimino el producto id ${idProducto}, del carrito con id ${idCarrito}`, carrito:data};
-                }
-                return {status:"error",message:'Producto no econtrado en el carrito', code:406};
+            if(carrito){
+                const productosAux = carrito.productos.filter(p=> p.id !== idProducto);
+                const data = await gestorCarrito.updateElemento(idCarrito,{username:username,productos:productosAux});
+                return {status:"ok",code:200,message:`Se elimino el producto id ${idProducto}, del carrito con id ${idCarrito}`, carrito:data.shift()};
             }
             return {status:"error",message:'Carrito no encontrado', code:406};
         }

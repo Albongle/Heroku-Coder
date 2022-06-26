@@ -1,14 +1,14 @@
 
-export const renderObjetos = (arrObjeto)=>{
-    const sectionProductos = document.querySelector("#section-productos");
-    sectionProductos.innerHTML = "",
-    sectionProductos.appendChild(createTable(arrObjeto));
+export const renderObjetos = (node,arrObjeto,accion,titulo)=>{
+
+    node.innerHTML =`<h2>${titulo}</h2>`;
+    node.appendChild(createTable(arrObjeto,accion));
 }
 
-const createTable =(arrObjetos)=>{
+const createTable =(arrObjetos,accion)=>{
     const table = document.createElement("table");
     table.appendChild(createThead(arrObjetos));
-    table.appendChild(createTbody(arrObjetos));
+    table.appendChild(createTbody(arrObjetos,accion));
     return table;
 }
 const createThead = (arrObjetos)=>{
@@ -35,7 +35,7 @@ const createThead = (arrObjetos)=>{
     thead.appendChild(tr);
     return thead;
 }
-const createTbody = (arrObjetos)=>{
+const createTbody = (arrObjetos,accion)=>{
     const tbody = document.createElement("tbody");
     
     if(Array.isArray(arrObjetos))
@@ -46,7 +46,7 @@ const createTbody = (arrObjetos)=>{
                 if(iterator === "id"){
 
                     tr.setAttribute("data-id",element[iterator]);
-                    tr.innerHTML+= `<td><button class="btn-comprar">Comprar</button></td>`;
+                    tr.innerHTML+= `<td><button class="btn-${accion}">${accion}</button></td>`;
                 }else if(iterator === "urlImg"){
                     tr.innerHTML+=`<td><img src="${element[iterator]}" alt="${element["title"]}"></td>`
                 }else if(iterator === "desc"){
