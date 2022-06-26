@@ -22,8 +22,8 @@ socket.on("refresh-carrito",(data)=>{
     productosCarrito.splice(0, productosCarrito.length);
     productosCarrito.push(...data.carrito.productos);
     carrito = data.carrito;
+    renderObjetos(sectionCarrito,mapearProductosDelCarrito(productosCarrito),"Eliminar","Carrito");
     if(productosCarrito.length>0){
-        renderObjetos(sectionCarrito,mapearProductosDelCarrito(productosCarrito),"Eliminar","Carrito");
         document.querySelectorAll(".btn-Eliminar").forEach(btn => btn.addEventListener("click", handlerEliminarProducto));
         document.querySelector("#btn-procesar-compra").addEventListener("click", handlerProcesarCompra);
     }
@@ -65,7 +65,6 @@ const handlerEliminarProducto = async (event)=>{
     const producto = productosCarrito.find(p=> p.id === event.target.parentNode.parentNode.dataset.id);
     if(producto){
         if((producto.cantidad-1) === 0){
-            console.log(typeof producto.cantidad)
             const res = await  deleteDatosFetch(`/api/carrito/${carrito._id}/productos/${producto.id}`);
             console.log(res);
         }
@@ -81,8 +80,13 @@ const handlerEliminarProducto = async (event)=>{
 }
 
 
-const handlerProcesarCompra = (event)=>{
-    alert("procesar compra");
+const handlerProcesarCompra = async (_event)=>{
+    
+    if(confirm("Desea enviar el pedido?")){
+        const res = await postDatosFetch(`/api/carrito/${carrito._id}/comprar`);
+        console.log(res);
+        alert("compra procesada");
+    }
 }
 
 

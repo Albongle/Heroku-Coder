@@ -16,12 +16,15 @@ router.post("",mdw.validarSession, async (req, res)=>{
     res.status(respuesta.code).json(respuesta);
 
 });
-router.delete("/:id",mdw.validarSession, async (req, res)=>{
+
+router.post("/:id/comprar",mdw.validarSession, async (req, res)=>{
     let {id}=req.params;
-    const respuesta = await CarritoController.borrarCarritoPorId(id);
-    req.app.io.sockets.emit("refresh-carrito",{carrito:respuesta.carrito});
+    const respuesta = await CarritoController.procesaCompraDeUnCarrito(id, req.session.passport.user);
+    req.app.io.sockets.emit("refresh-carrito",{carrito:{productos:[]}});
     res.status(respuesta.code).json(respuesta);
 });
+
+
 router.get("/:id/productos",mdw.validarSession, async (req, res)=>{
     let {id}=req.params;
     const respuesta = await CarritoController.obtenerProductosDeUnCarrito(id);

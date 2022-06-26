@@ -319,3 +319,121 @@
 [2022-06-26T13:08:25.901] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
 [2022-06-26T13:08:34.095] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
 [2022-06-26T13:08:51.296] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:10:57.529] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:24:48.023] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T13:24:48.128] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:24:56.655] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:25:23.454] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:25:46.729] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:26:23.539] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:29:02.854] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:31:22.463] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:32:22.963] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:34:14.243] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:34:23.556] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:34:57.947] [WARN] warn - { ruta: '/62b88a98ac36baf2bd48823d', metodo: 'DELETE' }
+[2022-06-26T13:35:09.333] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T13:35:09.417] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:35:09.427] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T13:35:23.976] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:42:22.458] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:43:31.420] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:43:36.797] [WARN] warn - {
+  ruta: '/api/carrito/62b88c706b5ebe80cd6cc429/comprar',
+  metodo: 'DELETE'
+}
+[2022-06-26T13:43:42.709] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:43:47.892] [WARN] warn - {
+  ruta: '/api/carrito/62b88c706b5ebe80cd6cc429/comprar',
+  metodo: 'DELETE'
+}
+[2022-06-26T13:44:47.985] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:44:52.923] [WARN] warn - {
+  ruta: '/api/carrito/62b88c706b5ebe80cd6cc429/comprar',
+  metodo: 'DELETE'
+}
+[2022-06-26T13:45:52.448] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T13:45:52.556] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:45:52.557] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T13:46:03.165] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T13:46:54.537] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:46:58.132] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T14:46:58.254] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:46:58.256] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:47:05.364] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:47:05.380] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:47:14.376] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:50:09.576] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:50:51.244] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:50:51.756] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:50:52.209] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:50:53.410] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:50:53.848] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:53:26.292] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:53:26.556] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:53:27.153] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T14:53:27.978] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T14:53:28.250] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T14:53:40.779] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:00:40.332] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:00:42.486] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:00:42.760] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:00:44.730] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:00:44.960] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:01:21.153] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:01:21.533] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:03:44.054] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:03:44.330] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:05:02.457] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T15:05:04.957] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:05:05.053] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:05:07.268] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:05:07.524] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:05:49.090] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:08:10.606] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:08:11.587] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:08:11.864] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:08:16.640] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T15:08:16.988] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T15:08:22.140] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T17:51:08.659] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T17:51:08.768] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T17:51:08.774] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T17:51:16.734] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T17:51:16.736] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T17:51:24.639] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T17:59:58.923] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:00:50.275] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:07:47.402] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T18:07:47.490] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:07:47.494] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T18:07:53.317] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:07:53.323] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T18:08:08.757] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:11:33.442] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:13:23.508] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:15:36.921] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:16:30.426] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:19:08.832] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T18:19:08.917] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:19:08.919] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T18:19:17.095] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:21:55.733] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:24:41.868] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:25:20.912] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:26:19.336] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T18:26:20.383] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:26:20.423] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T18:26:27.616] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T18:26:28.875] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:26:49.887] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:28:30.077] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:31:27.864] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:38:10.413] [WARN] warn - { ruta: '/login', metodo: 'GET' }
+[2022-06-26T18:38:10.488] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-06-26T18:38:10.492] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:38:19.762] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:41:08.149] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:42:07.014] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:44:24.732] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-06-26T18:45:10.278] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }

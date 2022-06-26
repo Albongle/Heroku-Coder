@@ -1,4 +1,6 @@
 const carritoDAO = require("../dao/carritoDAOMongoDb");
+const enviarCorreoElectronico = require("../modules/nodemailer/nodemailer");
+const { enviarSms, enviarWhatsApp } = require("../modules/twilio/twilio");
 const gestorCarrito = new carritoDAO();
 module.exports = class CarritoController{
 
@@ -43,9 +45,9 @@ module.exports = class CarritoController{
     static async borrarCarritoPorId(id){
 
         if(id){
-            const data =  await gestorCarrito.deleteElementoById(id);
+            const data =  (await gestorCarrito.deleteElementoById(id));
             if(data && data.length>0){
-                return {status:"ok",code:200,message:`Se elimino el carrito con id ${id}`, carrito:data.shift()};
+                return {status:"ok",code:200,message:`Se elimino el carrito con id ${id}`, carrito:{productos:[]}};
             }
             return {status:"error",message:'Carrito no encontrado', code:406};
         }
@@ -86,6 +88,34 @@ module.exports = class CarritoController{
             return {status:"error",message:'Carrito no encontrado', code:406};
         }
         return {status:"error",code:404,message:`No se recibieron algunos de los datos necesarios`};
+    }
+
+    static async procesaCompraDeUnCarrito(id,usuario){
+        if(id && usuario){
+            const data =  await gestorCarrito.getElementoById(id);
+            if(data){
+                console.log(data);
+                await gestorCarrito.deleteElementoById(id);
+                await enviarCorreoElectronico(process.env.MAIL_ADMIN,`Nuevo Pedido de ${usuario.nombre} - Email: ${usuario.username}`,CarritoController.#generarPlantillaDeProductos(data.productos));
+                await enviarSms(usuario.telefono, "Su pedido ha sido recidibo y se encuentra en proceso");
+                await enviarWhatsApp(process.env.TELEFONO_ADMIN,`Nuevo Pedido de ${usuario.nombre} - Email: ${usuario.username}`);
+                return {status:"ok",code:200,message:`Se proceso la compra del carrito con id ${id}`, carrito:data};
+            }
+            return {status:"error",message:'Carrito no encontrado', code:406};
+        }
+        return {status:"error",code:404,message:`No se recibieron algunos de los datos necesarios`};
+    }
+    static #generarPlantillaDeProductos(productos){
+        let lista = "<ul>";
+        if(Array.isArray(productos)){
+            
+            for (const key in productos) {
+                lista+= `<li>Producto: ${productos[key].nombre} - Cantidad: ${productos[key].cantidad}</li>`;
+            }
+        }
+        lista+="</ul>";
+        console.log(lista);
+        return lista;
     }
 
 }

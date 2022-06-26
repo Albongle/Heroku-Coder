@@ -25,25 +25,27 @@ passport.use("alta", new localStrategy({ passReqToCallback: true },async (req,us
 
     const usuarios = await gestorUsuario.getAllElementos();
     const usuarioAux = usuarios.find(u=> u.username == username);
-    if(usuarioAux){
+    const {username:email,password,edad,direccion, nombre, codNacion,codArea,numTelefono} = req.body;
+    const img = req.file.filename;
+    if(usuarioAux || (email===undefined || password===undefined || edad===undefined || nombre===undefined || codNacion===undefined || codArea===undefined ||numTelefono === undefined )){
         return done(null,false);
     }
-    const img = req.file.filename;
-    const {username:email,password,edad,direccion, nombre, telefono} = req.body;
-    const usuario ={username:email,password:encriptarPassword(password),edad,direccion,nombre,telefono, img};
+    
+    const telefono =codNacion+"9"+codArea+numTelefono;
+    const usuario ={username:email,password:encriptarPassword(password),edad,direccion,nombre,telefono,img};
     await gestorUsuario.addElementos(usuario);
     const plantillaBienvenida = `<section style="background-color: blanchedalmond;">
     <h1>Bienvenido ${nombre}</h1><br>
     <p>Usted se ha dado de alta de forma exitosa en la app de Alejandro Bongioanni</p><br>
     <ul>
-        <li>Usuario: ${username}</li>
-        <li>Nombre: ${nombre}</li>
-        <li>Edad: ${edad}</li>
-        <li>Direccion: ${direccion}</li>
-        <li>Telefono: ${telefono}</li>
+        <li>Usuario: ${usuario.username}</li>
+        <li>Nombre: ${usuario.nombre}</li>
+        <li>Edad: ${usuario.edad}</li>
+        <li>Direccion: ${usuario.direccion}</li>
+        <li>Telefono: ${usuario.telefono}</li>
     </ul>
     </section>`;
-    await enviarCorreoElectronico(username, `Bienvenido ${nombre}`, plantillaBienvenida);
+    await enviarCorreoElectronico(username, `Bienvenido ${usuario.nombre}`, plantillaBienvenida);
     return done(null,usuario);
  }));
 
