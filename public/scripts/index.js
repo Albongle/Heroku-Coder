@@ -9,13 +9,12 @@ const productos = [];
 const productosCarrito = [];
 let carrito;
 
-socket.on("refresh-productos",(data)=>{
-    console.log(data);
-    productos.splice(0, productos.length);
-    productos.push(...data);
-    renderObjetos(sectionProductos,productos,"Comprar","Productos");
-    document.querySelectorAll(".btn-Comprar").forEach(btn => btn.addEventListener("click", handlerComprarProducto));
-});
+// socket.on("refresh-productos",(data)=>{
+//     console.log(data);
+//     actualizarProductos(data);
+//     renderObjetos(sectionProductos,productos,"Comprar","Productos");
+//     document.querySelectorAll(".btn-Comprar").forEach(btn => btn.addEventListener("click", handlerComprarProducto));
+// });
 
 socket.on("refresh-carrito",(data)=>{
     productosCarrito.splice(0, productosCarrito.length);
@@ -33,7 +32,8 @@ socket.on("refresh-carrito",(data)=>{
 window.addEventListener("DOMContentLoaded",async ()=>{
 
     try{
-        await getDatosFetch("/api/productos-test");
+        const res = await getDatosFetch("/api/productos-test");
+        actualizarProductos(res.productosFaker);
         await getDatosFetch("/api/carrito");
     }
     catch(error){
@@ -86,6 +86,13 @@ const handlerProcesarCompra = async (_event)=>{
         console.log(res);
         alert("compra procesada");
     }
+}
+
+function actualizarProductos(elementos){
+    productos.splice(0, productos.length);
+    productos.push(...elementos);
+    renderObjetos(sectionProductos,productos,"Comprar","Productos");
+    document.querySelectorAll(".btn-Comprar").forEach(btn => btn.addEventListener("click", handlerComprarProducto));
 }
 
 

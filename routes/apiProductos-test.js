@@ -4,18 +4,10 @@ const {faker} = require("@faker-js/faker");
 const productosFaker =[];
 router.get("",(req,res)=>{
     informacionAleatoria();
-    req.app.io.sockets.emit("refresh-productos",productosFaker);
     res.status(200).json({productosFaker, usuario:req.session.usuario});
 
 });
 
-router.post("",async (req,res)=>{
-    let obj = {...req.body};
-    productosFaker.push(obj);
-    req.app.io.sockets.emit("refresh-productos",productosFaker);
-    res.status(200).json(obj);
-
-});
 
 
 function informacionAleatoria(){
