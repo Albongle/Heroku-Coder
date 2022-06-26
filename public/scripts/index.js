@@ -9,12 +9,6 @@ const productos = [];
 const productosCarrito = [];
 let carrito;
 
-// socket.on("refresh-productos",(data)=>{
-//     console.log(data);
-//     actualizarProductos(data);
-//     renderObjetos(sectionProductos,productos,"Comprar","Productos");
-//     document.querySelectorAll(".btn-Comprar").forEach(btn => btn.addEventListener("click", handlerComprarProducto));
-// });
 
 socket.on("refresh-carrito",(data)=>{
     productosCarrito.splice(0, productosCarrito.length);
