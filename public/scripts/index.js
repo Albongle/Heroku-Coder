@@ -3,7 +3,6 @@ import { renderObjetos } from "./modules/render.js";
 
 
 const socket = io();
-
 const sectionProductos = document.querySelector("#section-productos");
 const sectionCarrito = document.querySelector("#section-carrito");
 const productos = [];
@@ -11,6 +10,7 @@ const productosCarrito = [];
 let carrito;
 
 socket.on("refresh-productos",(data)=>{
+    console.log(data);
     productos.splice(0, productos.length);
     productos.push(...data);
     renderObjetos(sectionProductos,productos,"Comprar","Productos");
@@ -18,7 +18,6 @@ socket.on("refresh-productos",(data)=>{
 });
 
 socket.on("refresh-carrito",(data)=>{
-    console.log(data);
     productosCarrito.splice(0, productosCarrito.length);
     productosCarrito.push(...data.carrito.productos);
     carrito = data.carrito;
