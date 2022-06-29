@@ -11,9 +11,11 @@ let carrito;
 
 
 socket.on("refresh-carrito",(data)=>{
+
     productosCarrito.splice(0, productosCarrito.length);
-    productosCarrito.push(...data.carrito.productos);
-    carrito = data.carrito;
+    productosCarrito.push(...data.respuesta.carrito.productos);
+    carrito = data.respuesta.carrito;
+    console.log(carrito);
     renderObjetos(sectionCarrito,mapearProductosDelCarrito(productosCarrito),"Eliminar","Carrito");
     if(productosCarrito.length>0){
         document.querySelectorAll(".btn-Eliminar").forEach(btn => btn.addEventListener("click", handlerEliminarProducto));
@@ -57,17 +59,8 @@ function mapearProductosDelCarrito(elementos){
 const handlerEliminarProducto = async (event)=>{
     const producto = productosCarrito.find(p=> p.id === event.target.parentNode.parentNode.dataset.id);
     if(producto){
-        if((producto.cantidad-1) === 0){
-            const res = await  deleteDatosFetch(`/api/carrito/${carrito._id}/productos/${producto.id}`);
-            console.log(res);
-        }
-        else{
-            producto.cantidad--;
-            const productosAux = productosCarrito.filter(p=> p.id !== producto.id );
-            productosAux.push(producto);
-            const res = await postDatosFetch(`/api/carrito/${carrito._id}/productos`,productosAux);
-            console.log(res);
-        }
+        const res = await  deleteDatosFetch(`/api/carrito/${producto.id}`);
+        console.log(res);
     }
 
 }
@@ -76,7 +69,7 @@ const handlerEliminarProducto = async (event)=>{
 const handlerProcesarCompra = async (_event)=>{
     
     if(confirm("Desea enviar el pedido?")){
-        const res = await postDatosFetch(`/api/carrito/${carrito._id}/comprar`);
+        const res = await postDatosFetch(`/api/carrito/comprar`);
         console.log(res);
         alert("compra procesada");
     }

@@ -1,7 +1,6 @@
 
 export const renderObjetos = (node,arrObjeto,accion,titulo)=>{
 
-
     if(accion === "Eliminar"){
         node.innerHTML =`<h2>${titulo}</h2> <input type="button" name="comprar" id="btn-procesar-compra" value="Enviar Pedido">`;  
     }
