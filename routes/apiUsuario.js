@@ -26,12 +26,12 @@ router.use(passport.initialize());
 router.use(passport.session());
 
 //routes
-router.get("/",mdw.validarSession,(_req, res)=>{
-    res.redirect("/login");
+router.get("/",mdw.validarSession,(req, res)=>{
+    res.status(200).render("pages/home",{usuario:req.user.username, foto:req.user.img});
 });
 
-router.get("/login",mdw.validarSession,(req, res)=>{
-    res.status(200).render("pages/home",{usuario:req.user.username, foto:req.user.img});
+router.get("/login",(_req, res)=>{
+    res.render("pages/login");
 }); 
 router.get("/failLogin",(_req, res)=>{
     res.status(200).render("pages/login",{error:"Usuario o Contraseña invalidos"});
@@ -39,9 +39,9 @@ router.get("/failLogin",(_req, res)=>{
 router.get("/failAlta",(_req, res)=>{
     res.status(200).render("pages/registrar",{error:"Usuario ya existente"});
 }); 
-router.post("/login",passport.authenticate("login",{failureRedirect:"/failLogin", successRedirect:"/login"}));
+router.post("/login",passport.authenticate("login",{failureRedirect:"/failLogin", successRedirect:"/"}));
 
-router.post("/alta",upload.single("archivo"),passport.authenticate("alta",{failureRedirect:"/failAlta", successRedirect:"/login"}));
+router.post("/alta",upload.single("archivo"),passport.authenticate("alta",{failureRedirect:"/failAlta", successRedirect:"/"}));
 
 router.get("/alta",(_req, res)=>{
 

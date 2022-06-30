@@ -11,7 +11,7 @@ function validarSession(req,res, next){
     }
     else{
         logger.getLogger("warn").warn({ruta:req.path, metodo:req.method});
-        res.status(200).render("pages/login");
+        res.status(200).redirect("login");
     }
 }
 
