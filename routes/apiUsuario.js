@@ -6,6 +6,7 @@ const MongoStore = require("connect-mongo");
 const passport = require("../modules/passport/passport");
 const mdw = require("../middlewares/middlewares");
 const upload = require("../modules/multer/multer"); //importo multer para agregarlo como mdw en el endpoint
+const UsuarioController = require("../controllers/usuarioController");
 
 
 
@@ -26,33 +27,18 @@ router.use(passport.initialize());
 router.use(passport.session());
 
 //routes
-router.get("/",mdw.validarSession,(req, res)=>{
-    res.status(200).render("pages/home",{usuario:req.user.username, foto:req.user.img});
-});
+router.get("/",mdw.validarSession,UsuarioController.renderizarHome);
 
-router.get("/login",(_req, res)=>{
-    res.render("pages/login");
-}); 
-router.get("/failLogin",(_req, res)=>{
-    res.status(200).render("pages/login",{error:"Usuario o Contraseña invalidos"});
-}); 
-router.get("/failAlta",(_req, res)=>{
-    res.status(200).render("pages/registrar",{error:"Usuario ya existente"});
-}); 
+router.get("/login",UsuarioController.renderizarLogin); 
+router.get("/failLogin",UsuarioController.renderizarFalloAlLoguear); 
+router.get("/failAlta",UsuarioController.renderizarFalloAlRegistrar); 
 router.post("/login",passport.authenticate("login",{failureRedirect:"/failLogin", successRedirect:"/"}));
 
 router.post("/alta",upload.single("archivo"),passport.authenticate("alta",{failureRedirect:"/failAlta", successRedirect:"/"}));
 
-router.get("/alta",(_req, res)=>{
+router.get("/alta",UsuarioController.renderizarRegistrar);
+router.post("/logout",UsuarioController.desloguearUsuario);
 
-    res.status(200).render("pages/registrar");
-
-});
-router.post("/logout",mdw.validarSession,(req, res)=>{
-
-    req.logOut();
-    res.status(200).redirect("/");
-});
 
 
 module.exports = router;
