@@ -1,4 +1,4 @@
-const carritoDAO = require("../dao/carritoDAOMongoDb");
+const carritoDAO = require("../dao/mongo/CarritoMongo.DAO");
 const gestorCarrito = new carritoDAO();
 const enviarCorreoElectronico = require("../modules/nodemailer/nodemailer");
 const { enviarSms, enviarWhatsApp } = require("../modules/twilio/twilio");

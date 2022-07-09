@@ -1,4 +1,4 @@
-const Carrito = require("../model/carrito");
+const Carrito = require("../model/Carrito.Model");
 
 module.exports = class CarritoController{
 

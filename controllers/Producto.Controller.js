@@ -1,4 +1,4 @@
-const ProductoFaker = require("../model/productoFaker");
+const ProductoFaker = require("../model/ProductosFaker.Model");
 
 
 module.exports = class ProductoController{

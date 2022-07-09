@@ -1,4 +1,4 @@
-const UsuariosDAO = require("../dao/usuariosDAOMongoDb");
+const UsuariosDAO = require("../dao/mongo/UsuarioMongo.DAO");
 const gestorUsuario = new UsuariosDAO();
 const { encriptarPassword, esPassWordValido } = require("../modules/bcrypt/bcrypt");
 const enviarCorreoElectronico = require("../modules/nodemailer/nodemailer");

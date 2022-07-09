@@ -1,5 +1,5 @@
 const express = require("express");
-const CarritoController = require("../controllers/carritoControler");
+const CarritoController = require("../controllers/Carrito.Controller");
 const router = express.Router();
 const mdw = require("../middlewares/middlewares");
 

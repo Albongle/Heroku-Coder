@@ -1,4 +1,4 @@
-const InfoDelSistema = require("../model/infoDelSistema");
+const InfoDelSistema = require("../model/InfoDelSitema.Model");
 
 module.exports = class InfoController{
 

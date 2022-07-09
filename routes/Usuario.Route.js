@@ -6,7 +6,7 @@ const MongoStore = require("connect-mongo");
 const passport = require("../modules/passport/passport");
 const mdw = require("../middlewares/middlewares");
 const upload = require("../modules/multer/multer"); //importo multer para agregarlo como mdw en el endpoint
-const UsuarioController = require("../controllers/usuarioController");
+const UsuarioController = require("../controllers/Usuario.Controller");
 
 
 
@@ -30,13 +30,17 @@ router.use(passport.session());
 router.get("/",mdw.validarSession,UsuarioController.renderizarHome);
 
 router.get("/login",UsuarioController.renderizarLogin); 
+
 router.get("/failLogin",UsuarioController.renderizarFalloAlLoguear); 
+
 router.get("/failAlta",UsuarioController.renderizarFalloAlRegistrar); 
+
 router.post("/login",passport.authenticate("login",{failureRedirect:"/failLogin", successRedirect:"/"}));
 
 router.post("/alta",upload.single("archivo"),passport.authenticate("alta",{failureRedirect:"/failAlta", successRedirect:"/"}));
 
 router.get("/alta",UsuarioController.renderizarRegistrar);
+
 router.post("/logout",UsuarioController.desloguearUsuario);
 
 

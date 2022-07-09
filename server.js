@@ -6,13 +6,9 @@ function startServer(puerto){
     const app = express();
     const path = require("path");
     const socketIo= require("socket.io");
-    const apiUsuario = require("./routes/apiUsuario");
-    const apiCarrito = require("./routes/apiCarrito");
-    const apiFaker = require("./routes/apiProductos-test");
-    const apiInfo = require("./routes/apiInfo");
-    const apiRandom = require("./routes/apiRandom");
+    const api = require("./routes/Index.Route");
     const mdw = require("./middlewares/middlewares");
-    const ChatsDAO = require("./dao/chatsDAOMongoDb");
+    const ChatsDAO = require("./dao/mongo/ChatsMongo.DAO");
     const {engine:expressHbs}= require("express-handlebars");
 
 
@@ -31,16 +27,9 @@ function startServer(puerto){
     app.set("view engine", "hbs");
 
     //routes
-    app.use(apiUsuario);
-    app.use("/api/info", apiInfo);
-    app.use("/api/randoms", apiRandom);
-    app.use("/api/productos-test", apiFaker);
-    app.use("/api/carrito", apiCarrito);
+    app.use(api);
 
-    app.get("/puerto",(_req,res)=>{
-        res.send(`servidor escuchando en ${app.get("port")}, proceso ${process.pid}`);
-        
-    })
+  
 
 
     //middlewares
