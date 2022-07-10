@@ -29,10 +29,10 @@ export const postDatosFetch = async (url,objeto)=>{
         console.error(error);
     }
 };
-export const deleteDatosFetch = async (url)=>{
+export const deleteDatosFetch = async (url, objeto)=>{
     try{
 
-        const options  =  {method:"DELETE",headers:{"Content-Type":"application/json; charset=utf-8"}};
+        const options  =  {method:"DELETE",headers:{"Content-Type":"application/json; charset=utf-8"},body:objeto != undefined ? JSON.stringify(objeto):""};
         const res =  await fetch(url,options);
         if(!res.ok)
         {

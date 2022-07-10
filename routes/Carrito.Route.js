@@ -9,6 +9,6 @@ router.post("",mdw.validarSession,CarritoController.agregarProductoAlCarrito);
 
 router.post("/comprar",mdw.validarSession, CarritoController.procesarCompra);
 
-router.delete("/:idProducto",mdw.validarSession, CarritoController.quitarProductoDelCarrito);
+router.delete("/",mdw.validarSession, CarritoController.quitarProductoDelCarrito);
 
 module.exports = router;

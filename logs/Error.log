@@ -21,3 +21,15 @@
 [2022-06-28T21:04:17.928] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-06-28T21:04:46.432] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-06-28T21:05:08.654] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-09T21:11:33.936] [ERROR] error - CastError: Cast to string failed for value "{
+  username: 'alejandro.bongioanni@gmail.com',
+  password: '$2b$10$oues0nIpj1ytO5WRkvnl.u/mRrZf6XWE8VBgII3M9OGV7jaZteh4i',
+  nombre: 'Alejandro',
+  edad: 34,
+  direccion: 'Estados Unidos 142',
+  img: 'FotoUsuario_1656592425258.jpg',
+  codNacion: '+54',
+  codArea: '11',
+  numTelefono: '34925771',
+  telefono: '+5491134925771'
+}" (type Object) at path "username" for model "carrito"

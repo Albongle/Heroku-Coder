@@ -59,7 +59,7 @@ function mapearProductosDelCarrito(elementos){
 const handlerEliminarProducto = async (event)=>{
     const producto = productosCarrito.find(p=> p.id === event.target.parentNode.parentNode.dataset.id);
     if(producto){
-        const res = await  deleteDatosFetch(`/api/carrito/${producto.id}`);
+        const res = await  deleteDatosFetch(`/api/carrito/`,producto);
         console.log(res);
     }
 

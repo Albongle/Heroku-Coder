@@ -5,7 +5,9 @@ const UsuarioSchema = require("./schemas/Usuario.Schema");
 
 module.exports = class UsuariosDAOMongo extends GestorDbMongo{
 
-    constructor(){
-        super(process.env.STRING_CONNECTION,"usuarios",UsuarioSchema);   
-      }
+  constructor(){
+      super(process.env.STRING_CONNECTION,"usuarios",UsuarioSchema);   
+  }
+
+  
 }

@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 
-function esPassWordValido(passwordEncriptado, password){
+function esPassWordValido(password,passwordEncriptado){
     return bcrypt.compareSync(password,passwordEncriptado);
 }
 

@@ -1,73 +1,84 @@
-const carritoDAO = require("../dao/mongo/CarritoMongo.DAO");
-const gestorCarrito = new carritoDAO();
 const enviarCorreoElectronico = require("../modules/nodemailer/nodemailer");
 const { enviarSms, enviarWhatsApp } = require("../modules/twilio/twilio");
+const CustomError = require("./Error.Model");
 module.exports = class Carrito{
 
-
-    constructor(username){
-        this.username = username;
+    #usuario;
+    #productos;
+    constructor(datos){
+        this.#setUsuario(datos.usuario);
+        this.#setProductos(datos.productos);
     }
 
-    async obtenerCarritosDelUsuario(){
-        if(this.username){
-            return (await gestorCarrito.getAllElementos()).filter(carrito => carrito.username === this.username).shift();
+    get usuario (){
+        return this.#usuario;
+    }
+
+    get productos(){
+        return this.#productos;
+    }
+
+    #setUsuario(value){
+        if(value){
+            this.#usuario = value;
+        }else{
+
+            throw new CustomError("No se reicibio el usuario necesario para la creacion del carrito");
+        }
+
+    }
+    #setProductos(value){
+        if(value && Array.isArray(value)){
+            this.#productos = value;
+        }
+        else{
+            throw new CustomError("No se reicibio el usuario necesario para la creacion del carrito"); 
         }
     }
+    #getProducto(id){
+        return this.#productos.find(p=> p.id === id);
+    }
 
-    async agregarProductoAlCarrito(producto){
+    agregarProductoAlCarrito(producto){
         if(producto){
-            const carritoDelUsuario = await this.obtenerCarritosDelUsuario();
-            if(carritoDelUsuario){
-                const productoExistente = carritoDelUsuario.productos.find(p=> p.id === producto.id);
-                if(productoExistente){
-                    productoExistente.cantidad++;
-                }else{
-                    carritoDelUsuario.productos.push(producto);
-                }
-                return gestorCarrito.updateElemento(carritoDelUsuario._id, carritoDelUsuario);
-            }
-            else{
-                return gestorCarrito.addElementos({username:this.username,productos:new Array(producto)});
+            const productoExistente = this.#getProducto(producto.id);
+            if(productoExistente){
+                productoExistente.cantidad++;
+            }else{
+                this.#productos.push(producto);
             }
         }
+        return this;
     }
     
-    async borrarProductoDeUnCarrito(idProducto){
-        if(idProducto){
-            const carrito = await this.obtenerCarritosDelUsuario();
-            if(carrito){
-                const producto = carrito.productos.find(p=> p.id === idProducto);
-                if(producto){
-                    if((producto.cantidad-1) <= 0){
-                        carrito.productos = carrito.productos.filter(p=> p.id != idProducto);
-                    }else{
-                        producto.cantidad--;
-                    }
-                    await gestorCarrito.updateElemento(carrito._id,carrito);
-                    return true;
-                }
+    borrarProductoDeUnCarrito(producto){
+        if(producto){
+            if(producto.cantidad-1 <=0){
+                this.#productos = this.#productos.filter(p=> p.id !== producto.id);
+            }else{
+                this.#getProducto(producto.id).cantidad --;
             }
         }
+        return this;
     }
-    async procesarCompraDelCarrito(usuario){
-        const carrito = await this.obtenerCarritosDelUsuario();
-        if(carrito){
-            await enviarCorreoElectronico(process.env.MAIL_ADMIN,`Nuevo Pedido de ${usuario.nombre} - Email: ${usuario.username}`,Carrito.#generarPlantillaDeProductos(carrito.productos));
-            await enviarSms(usuario.telefono, "Su pedido ha sido recidibo y se encuentra en proceso");
-            await enviarWhatsApp(process.env.TELEFONO_ADMIN,`Nuevo Pedido de ${usuario.nombre} - Email: ${usuario.username}`);
-            return  gestorCarrito.deleteElementoById(carrito._id);
-            
-        }
+    #borrarProductos(){
+        this.#productos.splice(0,this.#productos.length);
+        return this;
     }
-    static #generarPlantillaDeProductos(productos){
+    async procesarCompraDelCarrito(){
+
+        await enviarCorreoElectronico(process.env.MAIL_ADMIN,`Nuevo Pedido de ${this.#usuario.nombre} - Email: ${this.#usuario.username}`,this.#generarPlantillaDeProductos());
+        await enviarSms(this.#usuario.telefono, "Su pedido ha sido recidibo y se encuentra en proceso");
+        await enviarWhatsApp(process.env.TELEFONO_ADMIN,`Nuevo Pedido de ${this.#usuario.nombre} - Email: ${this.#usuario.username}`);
+
+        return this.#borrarProductos();
+    }
+    #generarPlantillaDeProductos(){
         let lista = "<ul>";
-        if(Array.isArray(productos)){
-            
-            for (const key in productos) {
-                lista+= `<li>Producto: ${productos[key].nombre} - Cantidad: ${productos[key].cantidad}</li>`;
-            }
+        for (const key in this.#productos) {
+            lista+= `<li>Producto: ${this.#productos[key].nombre} - Cantidad: ${this.#productos[key].cantidad}</li>`;
         }
+
         lista+="</ul>";
         return lista;
     }
