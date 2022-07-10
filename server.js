@@ -1,3 +1,4 @@
+
 const logger = require("./logs/logger");
 
 function startServer(puerto){
@@ -8,10 +9,10 @@ function startServer(puerto){
     const socketIo= require("socket.io");
     const api = require("./routes/Index.Route");
     const mdw = require("./middlewares/middlewares");
-    const ChatsDAO = require("./dao/mongo/ChatsMongo.DAO");
+    const ChatFactory = require("./factory/Chat.Factory");
     const {engine:expressHbs}= require("express-handlebars");
 
-
+    
     //settings
     app.set("port",process.env.PORT || puerto);
     app.use(express.json());
@@ -46,7 +47,7 @@ function startServer(puerto){
 
 
     const io = socketIo(server);
-    const gestorChatsDao = new ChatsDAO();
+    const gestorChatsDao = ChatFactory.getManagerChat();
 
     io.on("connection",(socket)=>{
         logger.getLogger().info("Usuario conectado con ID", socket.id);    

@@ -1,5 +1,5 @@
 const GestorDbMongo = require("../../contenedores/GestorDB.Mongo");
-const UsuarioSchema = require("./schemas/Usuario.Schema");
+const UsuarioSchema = require("./schemas/Usuario.Mongo.Schema");
 
 
 

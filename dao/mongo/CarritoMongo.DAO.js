@@ -1,5 +1,5 @@
 const GestorDbMongo = require("../../contenedores/GestorDB.Mongo");
-const CarritoSchema = require("./schemas/Carrito.Schema");
+const CarritoSchema = require("./schemas/Carrito.Mongo.Schema");
 
 
 

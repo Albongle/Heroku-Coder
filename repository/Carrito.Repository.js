@@ -1,5 +1,5 @@
-const CarritoDAOMongo = require("../dao/mongo/CarritoMongo.DAO");
-const gestorCarrito = new CarritoDAOMongo();
+const CarritoFactory = require("../factory/Carrito.Factory");
+const gestorCarrito = CarritoFactory.getManagerCarrito();
 const CarritoMapper = require("../mapper/Carrito.Mapper");
 const ProductoMapper = require("../mapper/Producto.Mapper");
 const UsuarioMapper = require("../mapper/Usuario.Mapper");

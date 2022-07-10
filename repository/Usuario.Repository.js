@@ -1,5 +1,5 @@
-const UsuariosDAOMongo = require("../dao/mongo/UsuarioMongo.DAO");
-const gestorUsuario = new UsuariosDAOMongo();
+const UsuarioFactory = require("../factory/Usuario.Factory");
+const gestorUsuario = UsuarioFactory.getManagerUsuario();
 const UsuarioMapper = require("../mapper/Usuario.Mapper");
 
 module.exports = class UsuarioRespository{
