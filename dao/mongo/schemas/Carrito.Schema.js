@@ -1,5 +1,5 @@
 const CarritoSchema = {
-    username: {type:String, require:true,max:255},
+    usuario: {type:Object, require:true},
     productos:{type:Array, require:true},
 }
 

@@ -16,8 +16,8 @@ module.exports = class UsuarioRespository{
     }
 
     static async  getUsuarioByUsername(username){
-        const usuario = (await gestorUsuario.getElementoBy({username:username})).shift();
-        const usuarioBo = UsuarioMapper.obtenerBO(usuario._doc);
+        const usuario = (await gestorUsuario.getAllElementos()).find(u=>u.username === username);
+        const usuarioBo = UsuarioMapper.obtenerBO(usuario);
         return UsuarioMapper.obtenerDTO(usuarioBo);
     }
     

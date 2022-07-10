@@ -33,3 +33,37 @@
   numTelefono: '34925771',
   telefono: '+5491134925771'
 }" (type Object) at path "username" for model "carrito"
+[2022-07-10T11:39:18.241] [ERROR] error - MongoNetworkError: getaddrinfo EAI_AGAIN cluster0-shard-00-02.lof4v.mongodb.net
+    at connectionFailureError (/home/telecom/Documentos/Heroku-Coder/node_modules/mongodb/lib/cmap/connect.js:375:20)
+    at TLSSocket.<anonymous> (/home/telecom/Documentos/Heroku-Coder/node_modules/mongodb/lib/cmap/connect.js:295:22)
+    at Object.onceWrapper (node:events:642:26)
+    at TLSSocket.emit (node:events:527:28)
+    at emitErrorNT (node:internal/streams/destroy:157:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-07-10T12:10:01.673] [ERROR] error - ValidationError: username: Cast to string failed for value "{
+  username: 'alejandro.bongioanni@gmail.com',
+  password: '$2b$10$TD6RLm7kNzr27qFDtcOBp.G1oR49lm/6pcQX0.cawliPM.9Hm9uY6',
+  nombre: 'Alejandro',
+  edad: 34,
+  direccion: 'Estados Unidos 142',
+  img: 'FotoUsuario_1657464952087.jpg',
+  codNacion: '+54',
+  codArea: '11',
+  numTelefono: '34925771',
+  telefono: '+5491134925771'
+}" (type Object) at path "username"
+[2022-07-10T12:10:05.967] [ERROR] error - ValidationError: username: Cast to string failed for value "{
+  username: 'alejandro.bongioanni@gmail.com',
+  password: '$2b$10$TD6RLm7kNzr27qFDtcOBp.G1oR49lm/6pcQX0.cawliPM.9Hm9uY6',
+  nombre: 'Alejandro',
+  edad: 34,
+  direccion: 'Estados Unidos 142',
+  img: 'FotoUsuario_1657464952087.jpg',
+  codNacion: '+54',
+  codArea: '11',
+  numTelefono: '34925771',
+  telefono: '+5491134925771'
+}" (type Object) at path "username"

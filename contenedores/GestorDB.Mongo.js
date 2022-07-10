@@ -58,16 +58,6 @@ module.exports = class GestorDbMongo{
         }
 
     }
-    async getElementoBy(filtro){
-        try{
-            this.#setConexion();
-            return await this.#modelo.find(filtro).exec();
-        }
-        catch(error){
-            logger.getLogger("error").error(`${error}`);
-        }
-
-    }
     async updateElementoById(id,objeto)
     {
         try{
