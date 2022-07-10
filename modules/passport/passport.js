@@ -19,10 +19,9 @@ passport.use("login", new localStrategy(async (username, password, done)=>{
 
 passport.use("alta", new localStrategy({ passReqToCallback: true },async (req,_username, _password, done)=>{
     
-    const nuevoUsuario = UsuarioRespository.addUsuarios({...req.body,password:encriptarPassword(req.body.password),img:req.file.filename})
+    const nuevoUsuario = await UsuarioRespository.addUsuarios({...req.body,password:encriptarPassword(req.body.password),img:req.file.filename})
     if(nuevoUsuario){
         return done(null,nuevoUsuario);
-
     }
     return done(null,false);
  }));

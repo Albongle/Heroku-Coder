@@ -1186,3 +1186,16 @@
 [2022-07-10T12:28:05.638] [WARN] warn - { ruta: '/', metodo: 'GET' }
 [2022-07-10T12:28:06.982] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
 [2022-07-10T12:28:11.776] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:29:29.310] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-07-10T12:29:29.700] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:29:35.486] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:29:46.828] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-07-10T12:29:47.212] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:30:38.026] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:30:57.581] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-07-10T12:30:58.081] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:31:06.290] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:39:28.864] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:39:32.968] [WARN] warn - { ruta: '/', metodo: 'GET' }
+[2022-07-10T12:39:33.387] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
+[2022-07-10T12:39:40.282] [WARN] warn - { ruta: '/assets/iconCel.ico', metodo: 'GET' }
