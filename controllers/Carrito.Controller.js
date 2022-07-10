@@ -4,7 +4,6 @@ const CarritoRespository = require("../repository/Carrito.Repository");
 module.exports = class CarritoController{
 
     static async obtenerCarritoDelUsuario(req, res){
-
         const carrito = await CarritoRespository.getCarrito(req.session.passport.user);
         if(carrito){
             const respuesta ={status:"ok",code:200,message:`Solicitud procesada exitosamente`, carrito};
@@ -15,7 +14,7 @@ module.exports = class CarritoController{
         }
     }
 
-    static async agregarProductoAlCarrito(req, res){
+    static async agregarProductoAlCarrito(req, res){ 
 
         const carrito = await CarritoRespository.addProducto(req.session.passport.user, req.body);
         if(carrito){
@@ -52,4 +51,4 @@ module.exports = class CarritoController{
         }
 
     }
-}
+}   

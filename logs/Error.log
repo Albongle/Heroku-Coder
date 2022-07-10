@@ -67,3 +67,10 @@
   numTelefono: '34925771',
   telefono: '+5491134925771'
 }" (type Object) at path "username"
+[2022-07-10T19:49:29.224] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-10T19:50:16.232] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-10T19:50:41.165] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-10T19:57:40.059] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-10T19:57:56.644] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-10T19:58:45.685] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-10T19:59:39.102] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080

@@ -11,8 +11,8 @@ module.exports = class UsuarioRespository{
         const userBo = UsuarioMapper.obtenerBO(usuario);
         const userDto = UsuarioMapper.obtenerDTO(userBo);
         await gestorUsuario.addElementos(userDto);
-        userBo.notificarAlta();
-        return userBo;
+        await userBo.notificarAlta();
+        return userDto;
     }
 
     static async  getUsuarioByUsername(username){
