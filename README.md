@@ -14,6 +14,6 @@ To run this app:
 
 ![Home](./images/home.png)
 
-Deploy Heroku
+Enlace a Deply en Heroku
 
 [Heroku](https://coder-desafio-app.herokuapp.com/)
