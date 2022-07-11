@@ -8,5 +8,5 @@ To set up dependencies:
 To run this app:
 ### `npm start`
 
-![Login]("./images/login.png")
+![Login](./images/login.png)
 
