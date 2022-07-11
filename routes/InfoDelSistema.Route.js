@@ -1,7 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const compression = require("compression");
-const InfoController = require("../controllers/Info.Controller");
+import compression from "compression";
+import {InfoController} from "../controllers/Info.Controller.js";
 
 router.get("",InfoController.obtenerInformacionDelSistema);
 
@@ -9,4 +9,4 @@ router.get("/comprimida", compression(),InfoController.obtenerInformacionDelSist
 
 
 
-module.exports = router;
+export {router};

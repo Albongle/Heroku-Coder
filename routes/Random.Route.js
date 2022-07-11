@@ -1,7 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const path = require("path");
-const {fork} = require("child_process");
+import path from "path";
+import {fork} from "child_process";
 
 router.get("",(req,res)=>{
 
@@ -16,4 +16,4 @@ router.get("",(req,res)=>{
 });
 
 
-module.exports = router;
+export {router};

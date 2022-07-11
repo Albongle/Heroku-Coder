@@ -1,9 +1,9 @@
-const GestorDbMongo = require("../../contenedores/GestorDB.Mongo");
-const ChatSchema = require("./schemas/Chat.Mongo.Schema");
+import {GestorDbMongo} from "../../contenedores/GestorDB.Mongo.js";
+import {ChatSchema} from "./schemas/Chat.Mongo.Schema.js";
 
 
 
-module.exports = class ChatsDAOMongo extends GestorDbMongo{
+export class ChatDAOMongo extends GestorDbMongo{
 
     constructor(){
         super(process.env.STRING_CONNECTION,"chats",ChatSchema);   

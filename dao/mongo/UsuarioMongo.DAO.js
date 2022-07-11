@@ -1,9 +1,9 @@
-const GestorDbMongo = require("../../contenedores/GestorDB.Mongo");
-const UsuarioSchema = require("./schemas/Usuario.Mongo.Schema");
+import {GestorDbMongo} from "../../contenedores/GestorDB.Mongo.js";
+import {UsuarioSchema} from "./schemas/Usuario.Mongo.Schema.js";
 
 
 
-module.exports = class UsuariosDAOMongo extends GestorDbMongo{
+export class UsuariosDAOMongo extends GestorDbMongo{
 
   constructor(){
       super(process.env.STRING_CONNECTION,"usuarios",UsuarioSchema);   

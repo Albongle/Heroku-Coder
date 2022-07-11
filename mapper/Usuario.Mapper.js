@@ -1,6 +1,6 @@
-const Usuario = require("../model/Usuario.Model")
+import {Usuario} from "../model/Usuario.Model.js";
 
-module.exports = class UsuarioMapper {
+export class UsuarioMapper {
     static obtenerDTO(usuario){
         return{
             username:usuario.username,

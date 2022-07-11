@@ -1,18 +1,17 @@
-
-const logger = require("./logs/logger");
-
+import "dotenv/config";
+import logger from "./logs/logger.js";
+import {engine as expressHbs} from "express-handlebars";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+import {router as api} from "./routes/Index.Route.js";
+import mdw from  "./middlewares/middlewares.js";
+import {ChatFactory} from "./factory/Chat.Factory.js";
+import {Server as socketIo} from "socket.io";
 function startServer(puerto){
-    require("dotenv").config();
-    const express = require("express");
-    const app = express();
-    const path = require("path");
-    const socketIo= require("socket.io");
-    const api = require("./routes/Index.Route");
-    const mdw = require("./middlewares/middlewares");
-    const ChatFactory = require("./factory/Chat.Factory");
-    const {engine:expressHbs}= require("express-handlebars");
-
-    
+    const app = express();    
     //settings
     app.set("port",process.env.PORT || puerto);
     app.use(express.json());
@@ -46,7 +45,7 @@ function startServer(puerto){
     //SocketIO y Creaccion de la BD para almacenar los mensajes
 
 
-    const io = socketIo(server);
+    const io = new socketIo(server);
     const gestorChatsDao = ChatFactory.getManagerChat();
 
     io.on("connection",(socket)=>{
@@ -70,5 +69,5 @@ process.on("message",puerto=>{
     startServer(puerto);
 });
 
-module.exports = startServer;
+export {startServer};
 

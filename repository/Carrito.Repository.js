@@ -1,10 +1,9 @@
-const CarritoFactory = require("../factory/Carrito.Factory");
+import { CarritoFactory} from "../factory/Carrito.Factory.js";
+import { CarritoMapper } from "../mapper/Carrito.Mapper.js";
+import { ProductoMapper} from "../mapper/Producto.Mapper.js";
+import { UsuarioMapper } from "../mapper/Usuario.Mapper.js";
 const gestorCarrito = CarritoFactory.getManagerCarrito();
-const CarritoMapper = require("../mapper/Carrito.Mapper");
-const ProductoMapper = require("../mapper/Producto.Mapper");
-const UsuarioMapper = require("../mapper/Usuario.Mapper");
-
-module.exports = class CarritoRespository{
+export class CarritoRespository{
     static async getCarrito(usuario){
         const usuarioBo = UsuarioMapper.obtenerBO(usuario);
         const carritoBd = (await gestorCarrito.getAllElementos()).find(c=> c.usuario.username === usuario.username);

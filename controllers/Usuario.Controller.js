@@ -1,4 +1,4 @@
-module.exports = class UsuarioController{
+export class UsuarioController{
 
     static renderizarHome(req,res){
         res.status(200).render("pages/home",{usuario:req.user.username, foto:req.user.img});

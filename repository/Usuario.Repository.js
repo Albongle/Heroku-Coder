@@ -1,8 +1,7 @@
-const UsuarioFactory = require("../factory/Usuario.Factory");
+import {UsuarioFactory} from "../factory/Usuario.Factory.js";
+import {UsuarioMapper} from "../mapper/Usuario.Mapper.js";
 const gestorUsuario = UsuarioFactory.getManagerUsuario();
-const UsuarioMapper = require("../mapper/Usuario.Mapper");
-
-module.exports = class UsuarioRespository{
+export class UsuarioRespository{
 
 
 
@@ -16,7 +15,8 @@ module.exports = class UsuarioRespository{
     }
 
     static async  getUsuarioByUsername(username){
-        const usuario = (await gestorUsuario.getAllElementos()).find(u=>u.username === username);
+
+        const usuario = (await gestorUsuario.getAllElementos()).find(u=>u.username == username);  
         const usuarioBo = UsuarioMapper.obtenerBO(usuario);
         return UsuarioMapper.obtenerDTO(usuarioBo);
     }

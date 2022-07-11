@@ -1,7 +1,7 @@
-const enviarCorreoElectronico = require("../modules/nodemailer/nodemailer");
-const { enviarSms, enviarWhatsApp } = require("../modules/twilio/twilio");
-const CustomError = require("./Error.Model");
-module.exports = class Carrito{
+import {enviarCorreoElectronico} from "../modules/nodemailer/nodemailer.js";
+import { enviarSms, enviarWhatsApp } from "../modules/twilio/twilio.js";
+import {CustomError} from "./Error.Model.js";
+export class Carrito{
 
     #usuario;
     #productos;

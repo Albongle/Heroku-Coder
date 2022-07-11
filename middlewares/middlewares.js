@@ -1,4 +1,4 @@
-const logger = require("../logs/logger");
+import logger from "../logs/logger.js";
 
 function rutaNoImplementada(req,res,_next){
     logger.getLogger("warn").warn({ruta:req.path, metodo:req.method});
@@ -15,4 +15,4 @@ function validarSession(req,res, next){
     }
 }
 
-module.exports = {rutaNoImplementada, validarSession};
+export default {rutaNoImplementada, validarSession};

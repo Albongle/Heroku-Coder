@@ -1,8 +1,8 @@
-const CarritoDAOMongo = require("../dao/mongo/CarritoMongo.DAO");
+import {CarritoDAOMongo} from "../dao/mongo/CarritoMongo.DAO.js";
 
 
 
-module.exports = class CarritoFactory{
+export  class CarritoFactory{
     static manager = null;
     constructor () {
         CarritoFactory.manager = null;

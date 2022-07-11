@@ -1,27 +1,37 @@
-const console = require("console");
-const passport = require("passport");
-const {Strategy:localStrategy} = require("passport-local");
+import passport from "passport";
+import {Strategy as localStrategy} from "passport-local";
+import logger from "../../logs/logger.js";
 
-const UsuarioRespository = require("../../repository/Usuario.Repository");
-const { esPassWordValido, encriptarPassword } = require("../bcrypt/bcrypt");
+import {UsuarioRespository} from "../../repository/Usuario.Repository.js";
+import  { esPassWordValido, encriptarPassword } from "../bcrypt/bcrypt.js";
 
 
 
 //config
 //configuro passport, dentro obtiene los usuarios de la BD
 passport.use("login", new localStrategy(async (username, password, done)=>{
-    const usuario =  await UsuarioRespository.getUsuarioByUsername(username);
-    if(usuario.username === username && esPassWordValido(password,usuario.password)){
-        return done(null, usuario);
+    try{
+        const usuario =  await UsuarioRespository.getUsuarioByUsername(username);
+        if(usuario.username === username && esPassWordValido(password,usuario.password)){
+            return done(null, usuario);
+        }
+    }
+    catch(error){
+        logger.getLogger("error").error(error);
     }
     return done(null,false);
+    
 }));
 
 passport.use("alta", new localStrategy({ passReqToCallback: true },async (req,_username, _password, done)=>{
-    
-    const nuevoUsuario = await UsuarioRespository.addUsuarios({...req.body,password:encriptarPassword(req.body.password),img:req.file.filename})
-    if(nuevoUsuario){
-        return done(null,nuevoUsuario);
+    try{
+        const nuevoUsuario = await UsuarioRespository.addUsuarios({...req.body,password:encriptarPassword(req.body.password),img:req.file.filename})
+        if(nuevoUsuario){
+            return done(null,nuevoUsuario);
+        }
+    }
+    catch(error){
+        logger.getLogger("error").error(error);
     }
     return done(null,false);
  }));
@@ -34,4 +44,4 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 })
 
-module.exports= passport;
+export {passport};

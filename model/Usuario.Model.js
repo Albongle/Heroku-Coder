@@ -1,7 +1,7 @@
-const enviarCorreoElectronico = require("../modules/nodemailer/nodemailer");
-const CustomError = require("./Error.Model");
+import {enviarCorreoElectronico }from "../modules/nodemailer/nodemailer.js";
+import {CustomError} from "./Error.Model.js";
 
-module.exports = class Usuario{
+export class Usuario{
 
     #username;
     #password;

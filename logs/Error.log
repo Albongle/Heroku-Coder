@@ -74,3 +74,9 @@
 [2022-07-10T19:57:56.644] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-07-10T19:58:45.685] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-07-10T19:59:39.102] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-11T12:43:16.230] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at new Usuario (file:///home/telecom/Documentos/Heroku-Coder/model/Usuario.Model.js:17:33)
+    at Function.obtenerBO (file:///home/telecom/Documentos/Heroku-Coder/mapper/Usuario.Mapper.js:20:16)
+    at Function.getUsuarioByUsername (file:///home/telecom/Documentos/Heroku-Coder/repository/Usuario.Repository.js:20:41)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Strategy._verify (file:///home/telecom/Documentos/Heroku-Coder/modules/passport/passport.js:14:26)

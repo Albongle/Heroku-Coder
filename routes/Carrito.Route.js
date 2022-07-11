@@ -1,7 +1,7 @@
-const express = require("express");
-const CarritoController = require("../controllers/Carrito.Controller");
+import express from "express";
+import {CarritoController} from "../controllers/Carrito.Controller.js";
 const router = express.Router();
-const mdw = require("../middlewares/middlewares");
+import mdw from "../middlewares/middlewares.js";
 
 router.get("",mdw.validarSession,CarritoController.obtenerCarritoDelUsuario);
 
@@ -11,4 +11,4 @@ router.post("/comprar",mdw.validarSession, CarritoController.procesarCompra);
 
 router.delete("/",mdw.validarSession, CarritoController.quitarProductoDelCarrito);
 
-module.exports = router;
+export {router};

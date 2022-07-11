@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const logger = require("../logs/logger");
-module.exports = class GestorDbMongo{
+import mongoose from "mongoose";
+import logger from "../logs/logger.js";
+export class GestorDbMongo{
 
     #coleccion;
     #esquema;

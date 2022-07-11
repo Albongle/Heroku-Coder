@@ -13,4 +13,4 @@ const UsuarioSchema = {
   
 }
 
-module.exports = UsuarioSchema;
+export {UsuarioSchema};

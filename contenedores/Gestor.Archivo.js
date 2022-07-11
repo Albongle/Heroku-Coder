@@ -1,7 +1,7 @@
-const logger = require("../logs/logger");
-const CustomError = require("../model/Error.Model");
+import logger from "../logs/logger.js";
+import {CustomError} from "../model/Error.Model.js";
 
-module.exports = class GestorArchivo{
+export class GestorArchivo{
     static #fs= require('fs');
     static #idObjeto = 0;
     #file;

@@ -1,8 +1,8 @@
-const Carrito = require("../model/Carrito.Model");
-const ProductoMapper = require("./Producto.Mapper");
-const UsuarioMapper = require("./Usuario.Mapper");
+import {Carrito} from "../model/Carrito.Model.js";
+import  {ProductoMapper} from "./Producto.Mapper.js";
+import  {UsuarioMapper} from "./Usuario.Mapper.js";
 
-module.exports = class CarritoMapper {
+export class CarritoMapper {
     static obtenerDTO(carrito){
         return{
             usuario:UsuarioMapper.obtenerDTO(carrito.usuario),

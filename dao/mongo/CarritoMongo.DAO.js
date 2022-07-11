@@ -1,9 +1,9 @@
-const GestorDbMongo = require("../../contenedores/GestorDB.Mongo");
-const CarritoSchema = require("./schemas/Carrito.Mongo.Schema");
+import {GestorDbMongo} from "../../contenedores/GestorDB.Mongo.js";
+import {CarritoSchema} from "./schemas/Carrito.Mongo.Schema.js";
 
 
 
-module.exports = class CarritoDAOMongo extends GestorDbMongo{
+export class CarritoDAOMongo extends GestorDbMongo{
 
       constructor(){
         super(process.env.STRING_CONNECTION,"carrito",CarritoSchema);   

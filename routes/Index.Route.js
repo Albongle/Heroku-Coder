@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const apiUsuario = require("./Usuario.Route");
-const apiCarrito = require("./Carrito.Route");
-const apiFaker = require("./ProductoTest.Route");
-const apiInfo = require("./InfoDelSistema.Route");
-const apiRandom = require("./Random.Route");
+import {router as apiUsuario} from "./Usuario.Route.js";
+import {router as apiCarrito} from "./Carrito.Route.js";
+import {router as apiFaker } from "./ProductoTest.Route.js";
+import {router as apiInfo} from "./InfoDelSistema.Route.js";
+import {router as apiRandom}from "./Random.Route.js";
 
 router.use(apiUsuario);
 
@@ -18,4 +18,4 @@ router.use("/api/carrito", apiCarrito);
 
 router.get("/puerto",(_req,res)=>res.send(`servidor escuchando en ${router.get("port")}, proceso ${process.pid}`));
 
-module.exports = router;
+export {router};

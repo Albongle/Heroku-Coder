@@ -1,9 +1,8 @@
-const {faker} = require("@faker-js/faker");
-const CustomError = require("./Error.Model");
+import {faker} from "@faker-js/faker";
+import {CustomError} from "./Error.Model.js";
 
 
-
-module.exports = class Producto{
+export class Producto{
 
     #id;
     #urlImg;

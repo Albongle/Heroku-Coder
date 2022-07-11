@@ -5,4 +5,4 @@ const ChatSchema = {
     message:{type:String, require:true}
 }
 
-module.exports = ChatSchema;
+export {ChatSchema};

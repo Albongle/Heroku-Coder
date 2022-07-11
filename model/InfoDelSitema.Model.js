@@ -1,5 +1,5 @@
-const os = require("os");
-module.exports =  class InfoDelSistema{
+import os from "os";
+export class InfoDelSistema{
 
     creaObjetoInfo(){
         return {

@@ -1,14 +1,12 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const session= require("express-session");
-const cookieParse = require("cookie-parser");
-const MongoStore = require("connect-mongo");
-const passport = require("../modules/passport/passport");
-const mdw = require("../middlewares/middlewares");
-const upload = require("../modules/multer/multer"); //importo multer para agregarlo como mdw en el endpoint
-const UsuarioController = require("../controllers/Usuario.Controller");
-
-
+import session from "express-session";
+import cookieParse from "cookie-parser";
+import MongoStore from "connect-mongo";
+import {passport} from "../modules/passport/passport.js";
+import mdw from "../middlewares/middlewares.js";
+import {upload} from "../modules/multer/multer.js"; //importo multer para agregarlo como mdw en el endpoint
+import {UsuarioController} from "../controllers/Usuario.Controller.js";
 
 
 //middlewares
@@ -45,4 +43,4 @@ router.post("/logout",UsuarioController.desloguearUsuario);
 
 
 
-module.exports = router;
+export {router};

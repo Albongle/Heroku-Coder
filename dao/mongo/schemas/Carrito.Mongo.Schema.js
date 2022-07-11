@@ -3,4 +3,4 @@ const CarritoSchema = {
     productos:{type:Array, require:true},
 }
 
-module.exports = CarritoSchema;
+export {CarritoSchema};

@@ -1,9 +1,9 @@
-const ProductoRepository = require("../repository/Producto.Repository");
+import {ProductoRepository} from "../repository/Producto.Repository.js";
 
 
 
 
-module.exports = class ProductoController{
+export class ProductoController{
 
     static obtenerListadoDeProductos(req,res){
         if(req.session.passport){

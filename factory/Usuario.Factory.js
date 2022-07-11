@@ -1,5 +1,5 @@
-const UsuariosDAOMongo = require("../dao/mongo/UsuarioMongo.DAO");
-module.exports = class UsuarioFactory{
+import {UsuariosDAOMongo} from "../dao/mongo/UsuarioMongo.DAO.js";
+export class UsuarioFactory{
     static manager = null;
     constructor () {
         UsuarioFactory.manager = null;

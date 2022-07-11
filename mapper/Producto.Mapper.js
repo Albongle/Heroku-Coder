@@ -1,6 +1,6 @@
-const Producto = require("../model/Producto.Model");
+import {Producto} from "../model/Producto.Model.js";
 
-module.exports = class ProductoMapper {
+export class ProductoMapper {
     static obtenerDTO(producto){
         return{
             id:producto.id,

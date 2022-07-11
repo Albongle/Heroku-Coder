@@ -1,5 +1,5 @@
-const createTransport = require("nodemailer");
-const logger = require("../../logs/logger");
+import createTransport from "nodemailer";
+import logger from "../../logs/logger.js";
 const transporter = createTransport.createTransport({
     service:"gmail",
     port:587,
@@ -26,5 +26,5 @@ async function enviarCorreoElectronico(usuario,asunto, mensajeHtml){
     }
 }
 
-module.exports = enviarCorreoElectronico;
+export {enviarCorreoElectronico};
 

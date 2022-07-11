@@ -1,6 +1,6 @@
-const InfoDelSistema = require("../model/InfoDelSitema.Model");
+import {InfoDelSistema} from "../model/InfoDelSitema.Model.js";
 
-module.exports = class InfoController{
+export class InfoController{
 
     static obtenerInformacionDelSistema(_req, res){
         const info = new InfoDelSistema();

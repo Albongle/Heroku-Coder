@@ -1,6 +1,6 @@
-const ChatDAOMongo = require("../dao/mongo/ChatMongo.DAO");
+import {ChatDAOMongo} from "../dao/mongo/ChatMongo.DAO.js";
 
-module.exports = class ChatFactory{
+export class ChatFactory{
     static manager = null;
     constructor () {
         ChatFactory.manager = null;

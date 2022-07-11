@@ -1,5 +1,5 @@
-const twilio = require("twilio");
-const logger = require("../../logs/logger");
+import twilio from "twilio";
+import logger from "../../logs/logger.js";
 
 
 const cliente = twilio(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
@@ -36,4 +36,4 @@ async function enviarWhatsApp(destinatario, mensaje){
     }
 }
 
-module.exports = {enviarSms,enviarWhatsApp};
+export  {enviarSms,enviarWhatsApp};
