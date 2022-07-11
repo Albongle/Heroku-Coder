@@ -10,3 +10,9 @@ To run this app:
 
 ![Login](./images/login.png)
 
+
+![Registrate](./images/register.png)
+
+
+![Home](./images/home.png)
+
