@@ -28,7 +28,7 @@ socket.on("refresh-carrito",(data)=>{
 window.addEventListener("DOMContentLoaded",async ()=>{
 
     try{
-        const res = await getDatosFetch("/api/productos-test");
+        const res = await getDatosFetch("/api/productos");
         actualizarProductos(res.productosFaker);
         await getDatosFetch("/api/carrito");
     }

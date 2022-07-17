@@ -4,7 +4,7 @@ export class UsuarioController{
         res.status(200).render("pages/home",{usuario:req.user.username, foto:req.user.img});
     }
     static renderizarLogin(_req,res){
-        res.render("pages/login");
+        res.status(200).render("pages/login");
     }
     static renderizarFalloAlLoguear(_req,res){
         res.status(200).render("pages/login",{error:"Usuario o Contraseña invalidos"});

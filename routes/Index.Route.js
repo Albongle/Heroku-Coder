@@ -12,7 +12,7 @@ router.use("/api/info", apiInfo);
 
 router.use("/api/randoms", apiRandom);
 
-router.use("/api/productos-test", apiFaker);
+router.use("/api/productos", apiFaker);
 
 router.use("/api/carrito", apiCarrito);
 

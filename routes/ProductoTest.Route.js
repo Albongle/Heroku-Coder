@@ -5,7 +5,8 @@ import mdw from "../middlewares/middlewares.js";
 
 router.get("",mdw.validarSession,ProductoController.obtenerListadoDeProductos);
 
+router.get("/faker",ProductoController.obtenerListadoDeProductosFaker);
 
-
+router.post("/faker",ProductoController.addProducto);
 
 export {router};

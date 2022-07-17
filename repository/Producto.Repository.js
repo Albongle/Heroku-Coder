@@ -6,4 +6,9 @@ export class ProductoRepository{
         return Producto.getListaDeProductosFaker().map(p=>ProductoMapper.obtenerDTO(p));
     }
 
+    static addProductos(producto){
+        const productoBo = ProductoMapper.obtenerBO(producto);
+        return ProductoMapper.obtenerDTO(productoBo);
+    }
+
 }
