@@ -6,7 +6,7 @@ import {ProductoRepository} from "../repository/Producto.Repository.js";
 export class ProductoController{
 
     static obtenerListadoDeProductos(req,res){
-        res.status(200).json({status:"ok",code:200,productosFaker:ProductoRepository.getAllProductosFaker(), usuario:req.session.passport.user,message:`Solicitud procesada con exito`})
+        res.status(200).json({status:"ok",code:200,productosFaker:ProductoRepository.getAllProductosFaker(), usuario:req.user,message:`Solicitud procesada con exito`})
     }
 
 

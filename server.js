@@ -10,6 +10,14 @@ import {router as api} from "./routes/Index.Route.js";
 import mdw from  "./middlewares/middlewares.js";
 import {ChatFactory} from "./factory/Chat.Factory.js";
 import {Server as socketIo} from "socket.io";
+import session from "express-session";
+import cookieParse from "cookie-parser";
+import MongoStore from "connect-mongo";
+
+
+
+
+
 function startServer(puerto){
     const app = express();    
     //settings
@@ -22,6 +30,18 @@ function startServer(puerto){
         layoutsDir: path.join(__dirname,"/views/layouts/"),
         partialsDir: path.join(__dirname,"/views/partials/"),
     }));
+
+    app.use(cookieParse());
+    app.use(session({
+        store:MongoStore.create({mongoUrl:process.env.STRING_CONNECTION, mongoOptions:{useNewUrlParser:true, useUnifiedTopology:true}}),
+        secret:"shhhhhhhhhhhhhhhhhhhhhh",
+        resave:false,
+        saveUninitialized:false,
+        cookie:{
+                maxAge:600000
+        }
+    }));
+
 
     app.set("views",path.join(__dirname,"views"));
     app.set("view engine", "hbs");

@@ -1,0 +1,4 @@
+components:
+  requestBodies:
+    NewUsuario:
+      type:object

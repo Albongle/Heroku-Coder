@@ -2,11 +2,18 @@ import express from "express";
 const router = express.Router();
 import {router as apiUsuario} from "./Usuario.Route.js";
 import {router as apiCarrito} from "./Carrito.Route.js";
-import {router as apiFaker } from "./ProductoTest.Route.js";
+import {router as apiFaker } from "./Producto.Route.js";
 import {router as apiInfo} from "./InfoDelSistema.Route.js";
 import {router as apiRandom}from "./Random.Route.js";
+import {router as apiView}from "./Views.Router.js";
+import swagger from "../modules/swagger/swagger.js";
 
-router.use(apiUsuario);
+
+router.use("/view",apiView);
+
+router.use("/api/usuario",apiUsuario);
+
+router.use("/api-docs", swagger.serve, swagger.setup);
 
 router.use("/api/info", apiInfo);
 

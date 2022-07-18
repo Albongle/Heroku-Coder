@@ -1,0 +1,10 @@
+paths:
+  /api/usuario:
+    get:
+      summary: Obtener todos los usuarios
+      tags:
+        - Usuarios
+      responses:
+        "200":
+        description:
+        content:

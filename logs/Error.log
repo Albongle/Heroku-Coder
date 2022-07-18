@@ -587,3 +587,86 @@
 [2022-07-16T21:55:32.044] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-07-16T21:55:32.047] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
 [2022-07-16T21:55:32.348] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-17T00:25:55.501] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-17T00:26:48.101] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-17T00:27:55.917] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-17T00:29:53.203] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-17T00:51:11.008] [ERROR] error - error en servidor Error: listen EADDRINUSE: address already in use :::8080
+[2022-07-17T11:16:20.852] [ERROR] error - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: { error: 'Usuario o Contraseña invalidos' }
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.writeHead (node:_http_server:275:11)
+    at ServerResponse.writeHead (/home/telecom/Documentos/Heroku-Coder/node_modules/on-headers/index.js:44:26)
+    at ServerResponse._implicitHeader (node:_http_server:266:8)
+    at write_ (node:_http_outgoing:766:9)
+    at ServerResponse.end (node:_http_outgoing:855:5)
+    at ServerResponse.end (/home/telecom/Documentos/Heroku-Coder/node_modules/express-session/index.js:359:19)
+    at ServerResponse.redirect (/home/telecom/Documentos/Heroku-Coder/node_modules/express/lib/response.js:978:10)
+    at file:///home/telecom/Documentos/Heroku-Coder/controllers/Usuario.Controller.js:16:33
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
+[2022-07-17T11:20:25.026] [ERROR] error - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: { error: 'Usuario o Contraseña invalidos' }
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.writeHead (node:_http_server:275:11)
+    at ServerResponse.writeHead (/home/telecom/Documentos/Heroku-Coder/node_modules/on-headers/index.js:44:26)
+    at ServerResponse._implicitHeader (node:_http_server:266:8)
+    at write_ (node:_http_outgoing:766:9)
+    at ServerResponse.end (node:_http_outgoing:855:5)
+    at ServerResponse.end (/home/telecom/Documentos/Heroku-Coder/node_modules/express-session/index.js:359:19)
+    at ServerResponse.redirect (/home/telecom/Documentos/Heroku-Coder/node_modules/express/lib/response.js:978:10)
+    at file:///home/telecom/Documentos/Heroku-Coder/controllers/Usuario.Controller.js:16:33
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
+[2022-07-17T11:23:18.017] [ERROR] error - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: { error: 'Usuario o Contraseña invalidos' }
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.writeHead (node:_http_server:275:11)
+    at ServerResponse.writeHead (/home/telecom/Documentos/Heroku-Coder/node_modules/on-headers/index.js:44:26)
+    at ServerResponse._implicitHeader (node:_http_server:266:8)
+    at write_ (node:_http_outgoing:766:9)
+    at ServerResponse.end (node:_http_outgoing:855:5)
+    at ServerResponse.end (/home/telecom/Documentos/Heroku-Coder/node_modules/express-session/index.js:359:19)
+    at ServerResponse.redirect (/home/telecom/Documentos/Heroku-Coder/node_modules/express/lib/response.js:978:10)
+    at file:///home/telecom/Documentos/Heroku-Coder/controllers/Usuario.Controller.js:16:33
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
+[2022-07-17T11:24:26.995] [ERROR] error - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: { error: 'Usuario o Contraseña invalidos' }
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.writeHead (node:_http_server:275:11)
+    at ServerResponse.writeHead (/home/telecom/Documentos/Heroku-Coder/node_modules/on-headers/index.js:44:26)
+    at ServerResponse._implicitHeader (node:_http_server:266:8)
+    at write_ (node:_http_outgoing:766:9)
+    at ServerResponse.end (node:_http_outgoing:855:5)
+    at ServerResponse.end (/home/telecom/Documentos/Heroku-Coder/node_modules/express-session/index.js:359:19)
+    at ServerResponse.redirect (/home/telecom/Documentos/Heroku-Coder/node_modules/express/lib/response.js:978:10)
+    at file:///home/telecom/Documentos/Heroku-Coder/controllers/Usuario.Controller.js:18:33
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
+[2022-07-17T11:25:03.509] [ERROR] error - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: { error: 'Usuario o Contraseña invalidos' }
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.writeHead (node:_http_server:275:11)
+    at ServerResponse.writeHead (/home/telecom/Documentos/Heroku-Coder/node_modules/on-headers/index.js:44:26)
+    at ServerResponse._implicitHeader (node:_http_server:266:8)
+    at write_ (node:_http_outgoing:766:9)
+    at ServerResponse.end (node:_http_outgoing:855:5)
+    at ServerResponse.end (/home/telecom/Documentos/Heroku-Coder/node_modules/express-session/index.js:359:19)
+    at ServerResponse.redirect (/home/telecom/Documentos/Heroku-Coder/node_modules/express/lib/response.js:978:10)
+    at file:///home/telecom/Documentos/Heroku-Coder/controllers/Usuario.Controller.js:18:21
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
+[2022-07-17T11:25:18.664] [ERROR] error - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: { error: 'Usuario o Contraseña invalidos' }
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.writeHead (node:_http_server:275:11)
+    at ServerResponse.writeHead (/home/telecom/Documentos/Heroku-Coder/node_modules/on-headers/index.js:44:26)
+    at ServerResponse._implicitHeader (node:_http_server:266:8)
+    at write_ (node:_http_outgoing:766:9)
+    at ServerResponse.end (node:_http_outgoing:855:5)
+    at ServerResponse.end (/home/telecom/Documentos/Heroku-Coder/node_modules/express-session/index.js:359:19)
+    at ServerResponse.redirect (/home/telecom/Documentos/Heroku-Coder/node_modules/express/lib/response.js:978:10)
+    at file:///home/telecom/Documentos/Heroku-Coder/controllers/Usuario.Controller.js:18:21
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
