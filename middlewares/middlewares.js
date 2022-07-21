@@ -17,11 +17,11 @@ function isAutenticated(req, res, next)
                 next();
             }else{
 
-                res.status(401).json({status:"error",code:401, message:`Acceso denegado dirijase al link`, link:`/api/usuatrio/login (postman)  o  /view/login (para interfaz visual)`});
+                res.status(401).json({status:"error",code:401, message:`Acceso denegado dirijase al link`, link:`/api/usuario/login (postman)  o  /view/login (para interfaz visual)`});
             }
         });
     }else{
-        res.status(401).json({status:"error",code:401, message:`Acceso denegado, dirijase al link`,llink:`/api/usuatrio/login (postman)  o  /view/login (para interfaz visual)`});
+        res.status(401).json({status:"error",code:401, message:`Acceso denegado, dirijase al link`,llink:`/api/usuario/login (postman)  o  /view/login (para interfaz visual)`});
     }
 }
 
