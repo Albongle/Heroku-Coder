@@ -18,6 +18,7 @@ export class UsuarioController{
             }
         })
         .catch(error=>{
+            console.log(error);
             res.status(401).json({status:"error", code:401, message:"Usuario o contraseña invalidos"});
             logger.getLogger("error").error(error);
         });
