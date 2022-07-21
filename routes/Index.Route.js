@@ -23,6 +23,6 @@ router.use("/api/productos", apiFaker);
 
 router.use("/api/carrito", apiCarrito);
 
-router.get("/puerto",(_req,res)=>res.send(`servidor escuchando en ${router.get("port")}, proceso ${process.pid}`));
+router.get("/",(_req,res)=>res.json({messagge:`Bienvenido a la api de Alejandro Bongioanni, para acceder dirijase al link`, link:`/api/usuario/login (postman) o /view/login (para interfaz visual)`}));
 
 export {router};
