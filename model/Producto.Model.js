@@ -143,7 +143,7 @@ export class Producto{
      static getListaDeProductosFaker(cantidad=10){
         const productosFaker = new Array();
         for (let index = 0; index < cantidad; index++) {
-            const producto = new Producto({
+            const producto = {
                 id:faker.random.alphaNumeric(5),
                 urlImg: faker.image.image(),
                 desc: faker.lorem.lines(),
@@ -155,7 +155,7 @@ export class Producto{
                 precio: faker.finance.amount(10000,78000,2,"$"),
                 cuotas: faker.finance.amount(3,12,0),
                 cantidad:faker.finance.amount(1,2,0),
-            });
+            };
             
             productosFaker.push(producto);
         }

@@ -1,0 +1,44 @@
+components:
+  schemas:
+    Usuario:
+      type: object
+      required:
+        - username
+        - password
+        - nombre
+        - edad
+        - direccion
+        - file
+        - codNacion
+        - codArea
+        - numTelefono
+      properties:
+        username:
+          type: string
+          description: Es el mail del usuario que se va a crear
+        password:
+          type: string
+          description: Es la contraseña del usuario con la que va a acceder.
+        nombre:
+          type: string
+          description:
+        edad:
+          type: number
+          description: Es la edad del usuario
+        direccion: 
+          type: string
+          description: Es la direccion donde vive el usuario
+        file:
+          type: file
+          description: Es la foto del usuario
+        codNacion:
+          type: string
+          description: Es el codigo del pais que conforma el numero telefonico +54
+        codArea:
+          type: string
+          description: Es el codigo de la provincia que conforma el numero telefonico +54  
+        numTelefono:
+          type: string
+          description: Es el numero de telefono del usuario
+
+        

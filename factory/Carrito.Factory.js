@@ -3,16 +3,16 @@ import {CarritoDAOMongo} from "../dao/mongo/CarritoMongo.DAO.js";
 
 
 export  class CarritoFactory{
-    static manager = null;
+    static #manager = null;
     constructor () {
-        CarritoFactory.manager = null;
+        CarritoFactory.#manager = null;
     }
 
     static getManagerCarrito(){
-        if(CarritoFactory.manager === null){
+        if(CarritoFactory.#manager === null){
 
-            CarritoFactory.manager = new CarritoDAOMongo();
+            CarritoFactory.#manager = new CarritoDAOMongo();
         }
-        return CarritoFactory.manager;
+        return CarritoFactory.#manager;
     }
 }

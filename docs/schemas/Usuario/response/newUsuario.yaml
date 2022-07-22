@@ -1,0 +1,28 @@
+components:
+  response:
+    NewUsuario:
+      type: object
+      required:
+        - status
+        - code
+        - message
+        - token
+      properties:
+        status:
+          type: string
+          description: resultado de la respuesta
+        code:
+          type: number
+          description: numero de la respuesta
+        message:
+          type: string
+          description: mensaje de la respuesta
+        token:
+          type: string
+          description: token de acceso
+      example:
+        status: ok
+        code: 200
+        message: Alta realizada con exito, puede dirigirse a /view para interfaz visual
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsZWphbmRyby5ib25AbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRlQUJEeDBXWkVzY1J3dXpxRXZZYm5POHU2VWVTTFVQTUhlVlZIeG96amp6VXNmVWI1dzFKcSIsIm5vbWJyZSI6InBlcGUiLCJlZGFkIjoiNDUiLCJkaXJlY2Npb24iOiJlc3RhZG9zIHVuaWRvcyAxNDIiLCJpbWciOiJGb3RvVXN1YXJpb18xNjU4NDMwNjEyMjY1LmpwZyIsImNvZE5hY2lvbiI6Iis1NCIsImNvZEFyZWEiOiIwMTEiLCJudW1UZWxlZm9ubyI6IjM0OTI1NzcxIiwidGVsZWZvbm8iOiIrNTQ5MDExMzQ5MjU3NzEiLCJpYXQiOjE2NTg0MzA2MTQsImV4cCI6MTY1ODQzMTIxNH0.wwX0pHwvNAUqBj9JfDVfJuZYyRm4LqXwGpJjb95h73c
+      

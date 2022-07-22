@@ -1,15 +1,15 @@
 import {UsuariosDAOMongo} from "../dao/mongo/UsuarioMongo.DAO.js";
 export class UsuarioFactory{
-    static manager = null;
+    static #manager = null;
     constructor () {
-        UsuarioFactory.manager = null;
+        UsuarioFactory.#manager = null;
     }
     
     static getManagerUsuario(){
 
-        if(UsuarioFactory.manager === null){
-            UsuarioFactory.manager = new UsuariosDAOMongo();
+        if(UsuarioFactory.#manager === null){
+            UsuarioFactory.#manager = new UsuariosDAOMongo();
         }
-        return UsuarioFactory.manager;
+        return UsuarioFactory.#manager;
     }
 }

@@ -15,7 +15,7 @@ const options = {
             description:" A simple CRUD API appication made with Express and documented with Swagger",
         },
     },
-    apis:[path.join(__dirname,"**","*.yaml")],
+    apis:[path.join(__dirname,"..","..","docs","**","*.yaml")],
 
 };
 
